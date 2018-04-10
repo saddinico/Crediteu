@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Please wait while the seeds load..."
 
+puts "-"
 
 
   20.times do |x|
@@ -48,5 +50,24 @@
 
 
 
+9.times do |x|
+  Deal.create(company_id: x + 1,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(20.days.ago, Date.today),
+              amount: Faker::Number.between(25000, 1000000),
+              rate_per_annum: Faker::Number.between(15, 25).to_s + "," + "#{(0..100).to_a.sample}",
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: ["coming soon", "completed", "live"].sample,
+              )
+end
 
 
+20.times do |x|
+
+  Transaction.create(investor_id: (1..10).to_a.sample,
+                     deal_id: (1..9).to_a.sample,
+                     participation: [2000, 4000, 8000].sample,
+                     )
+end
+
+puts "Done!"

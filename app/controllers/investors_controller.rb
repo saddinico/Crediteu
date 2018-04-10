@@ -1,5 +1,6 @@
 class InvestorsController < ApplicationController
 
+
   def new
     @investor = investor.new
   end
@@ -27,3 +28,4 @@ class InvestorsController < ApplicationController
       :gender, :mother_name, :father_name, :phone, :address, :net_worth)
   end
 
+end

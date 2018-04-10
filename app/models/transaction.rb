@@ -1,8 +1,6 @@
 class Transaction < ApplicationRecord
   belongs_to :investor
   belongs_to :deal
-  has_many :investors
-  has_one :company
 
   validates :participation, presence: true
 

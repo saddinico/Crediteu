@@ -62,23 +62,12 @@ puts "-"
 end
 
 
-# Deal.all.each do |deal|
+20.times do |x|
 
-
-
-# end
-
-
-  #   create_table "transactions", force: :cascade do |t|
-  #   t.bigint "investor_id"
-  #   t.bigint "deal_id"
-  #   t.integer "participation"
-  #   t.datetime "created_at", null: false
-  #   t.datetime "updated_at", null: false
-  #   t.index ["deal_id"], name: "index_transactions_on_deal_id"
-  #   t.index ["investor_id"], name: "index_transactions_on_investor_id"
-  # end
-
-
+  Transaction.create(investor_id: (1..10).to_a.sample,
+                     deal_id: (1..9).to_a.sample,
+                     participation: [2000, 4000, 8000].sample,
+                     )
+end
 
 puts "Done!"

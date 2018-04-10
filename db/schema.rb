@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410145955) do
+ActiveRecord::Schema.define(version: 20180410154852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 20180410145955) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "deals", force: :cascade do |t|
+    t.bigint "company_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "amount"
+    t.integer "rate_per_annum"
+    t.string "credit_rating"
+    t.integer "maturity"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_deals_on_company_id"
+  end
+
   create_table "investors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -53,6 +67,16 @@ ActiveRecord::Schema.define(version: 20180410145955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_investors_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "investor_id"
+    t.bigint "deal_id"
+    t.integer "participation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_transactions_on_deal_id"
+    t.index ["investor_id"], name: "index_transactions_on_investor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,5 +97,8 @@ ActiveRecord::Schema.define(version: 20180410145955) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "deals", "companies"
   add_foreign_key "investors", "users"
+  add_foreign_key "transactions", "deals"
+  add_foreign_key "transactions", "investors"
 end

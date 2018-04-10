@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410143028) do
+ActiveRecord::Schema.define(version: 20180410145955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "date_of_foundation"
+    t.string "cnpj"
+    t.string "legal_name"
+    t.text "address"
+    t.string "phone"
+    t.string "manager_first_name"
+    t.string "manager_last_name"
+    t.string "manager_cpf"
+    t.string "manager_phone"
+    t.string "manager_email"
+    t.text "company_description"
+    t.string "current_billing"
+    t.string "website"
+    t.integer "number_of_employees"
+    t.string "use_of_proceeds"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "investors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "monthly_income"
+    t.string "cpf"
+    t.string "date_of_birth"
+    t.bigint "user_id"
+    t.string "gender"
+    t.string "mother_name"
+    t.string "father_name"
+    t.string "phone"
+    t.string "address"
+    t.string "net_worth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_investors_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +72,6 @@ ActiveRecord::Schema.define(version: 20180410143028) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "companies", "users"
+  add_foreign_key "investors", "users"
 end

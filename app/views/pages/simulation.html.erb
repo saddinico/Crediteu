@@ -1,0 +1,55 @@
+<!-- <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head>
+ -->
+
+<div class="container">
+
+
+
+  <div class="sim-grid">
+
+    <div class="form-sim">
+      <form action=''>
+        Yearly Income: <br>
+        <select name="Yearly Income" id='inc'>
+          <option value=1 selected>10k-90k</option>
+          <option value=2>100k-200k</option>
+          <option value=3>200k-300k</option>
+          <option value=4>500k-1M</option>
+        </select>
+        <br><br>
+        Number of Months: <br>
+        <select name="Number of Months" id='numb'>
+          <option value=6 selected>6</option>
+          <option value=8>8</option>
+          <option value=12>12</option>
+          <option value=24>24</option>
+        </select>
+        <br><br>
+        Loan Amount: <br>
+        <select name="Loan Amount" id='amo'>
+          <option value=20000 selected>R$20.000</option>
+          <option value=40000>R$40.000</option>
+          <option value=80000>R$80.000</option>
+          <option value=150000>R$160.000</option>
+        </select>
+        <br><br>
+
+
+        <input type="submit" id='buton' >
+      </form>
+    </div>
+    <div class="interest-sim">
+      <h2 id='testx'></h2>
+    </div>
+  </div>
+</div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+document.getElementById("buton").addEventListener("click", (event) => {
+    event.preventDefault();
+    document.getElementById("testx").innerHTML = (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1);
+});
+  </script>
+<% end %>

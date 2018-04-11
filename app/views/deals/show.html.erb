@@ -15,9 +15,11 @@
         <li> R$<%= @deal.amount %> </li>
         <li> Juros: <%= @deal.rate_per_annum %>% ao ano</li>
         <li> <%= @deal.credit_rating %> </li>
-        <li> Stats:<%= @deal.status %></li>
-        <% if @deal.status == 'live' %>
-        <%= link_to 'Investir', new_deal_transaction_path(@deal) %>
+        <li> Status: <%= @deal.status %></li>
+          <% if @deal.status == 'live' && current_user.investor %>
+            <%= link_to 'Investir', new_deal_transaction_path(@deal) %>
+          <% elsif @deal.status == 'live' && !current_user.investor %>
+            <%= link_to 'Investir', new_investor_path(current_user) %>
         <% end %>
       </ul>
     </div>

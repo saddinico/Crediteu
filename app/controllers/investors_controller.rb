@@ -20,7 +20,7 @@ class InvestorsController < ApplicationController
   end
 
   def update
-    if @investor = Investor.update(investor_params)
+    if @investor.update(investor_params)
      redirect_to '/'
     else
      render 'edit'

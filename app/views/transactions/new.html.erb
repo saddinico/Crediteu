@@ -1,0 +1,6 @@
+<%= simple_form_for ([@deal, @transaction]) do |f| %>
+
+<%= f.input :participation, label: "Oferta" %>
+<%= f.submit 'Confirmar oferta', data: { confirm: 'Voce tem certeza que quer investir' } %>
+
+<% end %>

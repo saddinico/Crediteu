@@ -6,15 +6,18 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
-
+    <% if current_user %>
+      <% if current_user.is_company %>
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard/a>
+      <% else %>
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Deals</a>
+      <% end %>
+    <% end %>
     <!-- Profile picture with dropdown list -->
+    <% if current_user %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <img src=<%= asset_path 'burger.png'%> class="burger dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
@@ -22,6 +25,9 @@
         </ul>
       </div>
     </div>
+    <% else %>
+      <%= link_to "login", new_user_session_path  %>
+    <% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->

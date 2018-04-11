@@ -1,16 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <!-- <img src="images/logo.png" alt="logo"> -->
+  <a href="/" class="navbar-wagon-brand" style="text-decoration:none;">
+ <!--    <img src="images/logo.png" alt="logo"> -->
+    home
   </a>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
       <% if current_user.is_company %>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard/a>
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
       <% else %>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Deals</a>
+        <a href=<%= deals_path %> class="navbar-wagon-item navbar-wagon-link">Deals</a>
       <% end %>
     <% end %>
     <!-- Profile picture with dropdown list -->

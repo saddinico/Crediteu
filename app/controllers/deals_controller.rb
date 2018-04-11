@@ -11,14 +11,15 @@ class DealsController < ApplicationController
 
   def new
     @deal = Deal.new
-    @deal.company = current_user.company
   end
 
   def create
     @deal = Deal.new(deal_params)
+    @deal.company = current_user.company
     if @deal.save
       redirect_to '/deals'
     else
+      puts @deal.errors.full_messages
       render 'new'
     end
   end

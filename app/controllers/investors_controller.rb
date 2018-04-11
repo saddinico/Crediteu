@@ -20,13 +20,18 @@ class InvestorsController < ApplicationController
   end
 
   def update
-    @investor = Investor.update(investor_params)
+    if @investor = Investor.update(investor_params)
+     redirect_to '/'
+    else
+     render 'edit'
+   end
   end
 
   def index
   end
 
   def destroy
+    @investor.destroy
   end
 
   private

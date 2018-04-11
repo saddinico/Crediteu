@@ -1,6 +1,6 @@
 class InvestorsController < ApplicationController
 
-  before_action :set_investor, only: [:show, :edit, :destroy]
+  before_action :set_investor, only: [:show, :edit, :destroy ]
 
   def new
     @investor = Investor.new
@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
     @investor = Investor.new(investor_params)
     @investor.user = current_user
      if @investor.save
-      redirect_to investors_path
+      redirect_to '/'
     else
       render 'new'
     end
@@ -20,13 +20,19 @@ class InvestorsController < ApplicationController
   end
 
   def update
-    @investor = Investor.update(investor_params)
+    if @investor = Investor.update(investor_params)
+     redirect_to '/'
+    else
+     render 'edit'
+   end
   end
 
   def index
+    @investor = current_user.investor
   end
 
   def destroy
+    @investor.destroy
   end
 
   private

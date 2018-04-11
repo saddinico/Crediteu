@@ -1,0 +1,14 @@
+.sim-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
+  grid-gap: 50px;
+}
+
+.interest-sim{
+  border: 1px solid lightgray;
+}
+
+.form-sim{
+  border: 1px solid lightgray;
+}

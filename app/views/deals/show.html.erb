@@ -16,6 +16,9 @@
         <li> Juros: <%= @deal.rate_per_annum %>% ao ano</li>
         <li> <%= @deal.credit_rating %> </li>
         <li> Stats:<%= @deal.status %></li>
+        <% if @deal.status == 'live' %>
+        <%= link_to 'Investir', new_deal_transaction_path(@deal) %>
+        <% end %>
       </ul>
     </div>
 

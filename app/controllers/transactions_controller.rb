@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
     @transaction.investor_id = current_user.investor.id
 
     if @transaction.save
-      redirect_to root_path # Change it later
+      redirect_to investors_path(@investor) # Change it later
     else
       render :new
     end

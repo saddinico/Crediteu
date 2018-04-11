@@ -8,5 +8,4 @@ class SessionsController < Devise::SessionsController
       companies_path
     end
   end
-
 end

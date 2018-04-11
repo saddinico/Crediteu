@@ -57,7 +57,7 @@ puts "-"
               amount: Faker::Number.between(25000, 1000000),
               rate_per_annum: Faker::Number.between(15, 25).to_s + "," + "#{(0..100).to_a.sample}",
               credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
-              status: ["coming soon", "completed", "live"].sample,
+              status: ["pending" ,"coming soon", "completed", "live"].sample,
               )
 end
 

@@ -1,0 +1,15 @@
+
+  <%= simple_form_for @investor do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :date_of_birth %>
+    <%= f.input :phone %>
+    <%= f.input :address %>
+    <%= f.input :gender %>
+    <%= f.input :cpf, label: 'CPF' %>
+    <%= f.input :mother_name, label: "Mother's Name" %>
+    <%= f.input :father_name, label: "Father's Name" %>
+    <%= f.input :monthly_income, label: "Monthly's Income (R$)" %>
+    <%= f.input :net_worth, label: "Net Worth (R$)"  %>
+    <%= f.submit 'Update registration' %>
+  <% end %>

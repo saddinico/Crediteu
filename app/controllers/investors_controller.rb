@@ -10,7 +10,7 @@ class InvestorsController < ApplicationController
     @investor = Investor.new(investor_params)
     @investor.user = current_user
      if @investor.save
-      redirect_to investors_path
+      redirect_to '/'
     else
       render 'new'
     end

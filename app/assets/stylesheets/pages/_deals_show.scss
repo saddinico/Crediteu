@@ -1,0 +1,21 @@
+.grid-deal-show {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows:auto;
+  height: 50vh;
+  grid-gap: 50px;
+}
+
+
+.deal-show-title {
+  padding-bottom: 40px;
+}
+
+.deal-company-info {
+  padding-top: 20px;
+
+}
+
+.deal-info{
+  border: 1px solid rgba(146, 151, 126, 0.4);
+}

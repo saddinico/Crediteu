@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-
+    @company.destroy
   end
 
   private

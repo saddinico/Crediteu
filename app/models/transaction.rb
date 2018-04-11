@@ -12,9 +12,9 @@ class Transaction < ApplicationRecord
 
   def check_total_participation
     if deal.transactions.pluck(:participation).inject(:+) == nil && participation > deal.amount
-      errors.add(:participation, "Desculpe, esse valor excede o valor pedido")
+      errors.add(:participation, "Desculpe, esse valor excede o valor máximo permitido")
     elsif (deal.transactions.pluck(:participation).inject(:+) || 0) + participation > deal.amount
-      errors.add(:participation, "Desculpe, esse valor excede o valor pedido")
+      errors.add(:participation, "Desculpe, esse valor excede o valor máximo permitido")
     end
   end
 

@@ -9,9 +9,16 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.deal_id = params[:deal_id]
+    @deal = Deal.find(params[:deal_id])
+
+    @transaction.deal_id = @deal.id
     @transaction.investor_id = current_user.investor.id
-    @transaction.save
+
+    if @transaction.save
+      redirect_to root_path # Change it later
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,7 +27,6 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction.update(transaction_params)
-    raise
   end
 
   def destroy

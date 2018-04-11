@@ -9,7 +9,7 @@ class Deal < ApplicationRecord
   validates :status, presence: true, inclusion: { in: ['coming soon', 'live', 'completed'] }
 
   def maturity
-    maturity = self.end_date - self.start_date
+    maturity = (self.end_date - self.start_date).to_i
   end
 
 end

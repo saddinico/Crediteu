@@ -1,3 +1,13 @@
-<% current_user.investor.transactions.each do |transaction| %>
 
-<%= transaction. %>
+<ul>
+<% current_user.investor.transactions.each do |transaction| %>
+<li>Empresa: <%= transaction.deal.company.legal_name %>
+<br>
+Investido: <%= transaction.participation %> R$
+<br>
+Rendimento: <%= transaction.deal.rate_per_annum %> %
+<br>
+Prazo do investimento: <%= transaction.deal.maturity %> dias
+</li>
+<% end %>
+</ul>

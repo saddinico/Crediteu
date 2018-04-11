@@ -1,16 +1,22 @@
 <h2>Valor Total Arrecadado:
   <% total = 0 %>
-  <% current_user.company.transactions.each do |x|%>
-    <% total += x.participation %>
+
+  <% if !current_user.company.nil? %>
+    <% current_user.company.transactions.each do |x|%>
+      <% total += x.participation %>
+    <% end %>
   <% end %>
   R$<%= total %>
 </h2>
+
+<% if !current_user.company.nil? %>
 <% current_user.company.transactions.each do |x| %>
-  <div>
-    <h5>Investidor ID - <%= x.investor_id %> </h5>
-    <h5>Participação - R$<%= x.participation %></h5>
-    <h5>Criado em: <%= x.created_at %></h5>
-  </div>
+    <div>
+      <h5>Investidor ID - <%= x.investor_id %> </h5>
+      <h5>Participação - R$<%= x.participation %></h5>
+      <h5>Criado em: <%= x.created_at %></h5>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to 'novo emprestimo', new_deal_path(@company) %>

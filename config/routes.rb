@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 
   resources :investors
 
-  resources :companies do
-    resources :deals, only: [:new, :create]
-  end
+  resources :companies
 
-  resources :deals, except: [:new, :create] do
+
+  resources :deals do
     resources :transactions
   end
 

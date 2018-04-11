@@ -1,6 +1,6 @@
 class InvestorsController < ApplicationController
 
-  before_action :set_investor, only: [:show, :edit, :destroy]
+  before_action :set_investor, only: [:show, :edit, :destroy ]
 
   def new
     @investor = Investor.new
@@ -28,6 +28,7 @@ class InvestorsController < ApplicationController
   end
 
   def index
+    @investor = current_user.investor
   end
 
   def destroy

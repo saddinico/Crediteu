@@ -1,15 +1,24 @@
-<div class="container">
-  <div style="text-align: center; margin-top:30vh;">
-    <h1>Crediteu</h1>
-    <p>Uma melhor oportunidade para investidores e micro-emprendedores através de empréstimos descentralizados</p>
+<div class="background-home">
+  <div class="home-top">
+    <h1>crediteu</h1>
+    <div class="home-login"><%= link_to "login", new_user_session_path  %></div>
+  </div>
+  <div class="container">
+    <div style="margin-top:20vh;">
+
+      <div class="home-body">
+        <h2>Aloque recursos aonde mais precisa</h2>
+        <p>Uma melhor oportunidade para investidores e micro-emprendedores através de empréstimos descentralizados</p>
+      </div>
 
 
-    <%= link_to "Quero investir", new_user_registration_path, class: "btn btn-success btn-lg" %>
-    <%= link_to "Quero empréstimo", new_user_registration_path(:is_company => true), class: "btn btn-success btn-lg" %>
+      <%= link_to "Quero investir", new_user_registration_path, class: "btn btn-success btn-lg", style: "width: 250px; padding: 20px 0px; margin-right:10px;"%>
+      <%= link_to "Quero empréstimo", new_user_registration_path(:is_company => true), class: "btn btn-success btn-lg", style: "width: 250px; padding: 20px 0px;" %>
 
 
-    <%if current_user.present? %>
+      <%if current_user.present? %>
 
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

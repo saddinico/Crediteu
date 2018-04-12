@@ -38,9 +38,15 @@
         <input type="submit" id='buton' >
       </form>
     </div>
+
     <div class="interest-sim">
+      <h2 class="hidden-div" id="hidiv">Your interest rate should be around:</h2>
       <h2 id='testx'></h2>
     </div>
+  </div>
+
+  <div >
+    <a href="/users/sign_up" id="but-sign-up" class="hidden-div">Sign Up!</a>
   </div>
 </div>
 
@@ -49,7 +55,11 @@
   <script>
 document.getElementById("buton").addEventListener("click", (event) => {
     event.preventDefault();
-    document.getElementById("testx").innerHTML = (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1);
+
+    document.getElementById("hidiv").classList.remove('hidden-div');
+    document.getElementById("but-sign-up").classList.remove('hidden-div');
+    let rate = (4 - (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1)) / 10;
+    document.getElementById("testx").innerHTML = `${rate}% per month`
 });
   </script>
 <% end %>

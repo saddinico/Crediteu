@@ -3,37 +3,36 @@
 
 
     <% @deals.each do |deal| %>
+      <% if deal.status != 'pending' %>
+      <div class="card-deal">
+        <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
 
-    <% if deal.status != 'pending' %>
-    <div class="card-deal">
-      <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+          <%= link_to "", deal_path(deal), class: "card-link" %>
 
-        <%= link_to "", deal_path(deal), class: "card-link" %>
-
-        <div class="overlay">
-          <div class="text-deal">
-            <ul class="list-unstyled">
-              <li> Juros: <%= deal.rate_per_annum %>% </li>
-              <li> Rating: <%= deal.credit_rating %> </li>
-              <li> Status: <%= deal.status %></li>
-            </ul>
+          <div class="overlay">
+            <div class="text-deal">
+              <ul class="list-unstyled">
+                <li> Juros: <%= deal.rate_per_annum %>% </li>
+                <li> Rating: <%= deal.credit_rating %> </li>
+                <li> Status: <%= deal.status %></li>
+              </ul>
+            </div>
           </div>
         </div>
+
+       <!--  deal.transactions.pluck(:participation).inject(:+) -->
+
+
+        <div class="maturity" >
+          <div class="loaded" style="height:6px;width: <%= deal.rate_per_annum %>%"> </div>
+        </div>
+        <div class="descript-card">
+
+          <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
+          <div class="deal-amount"><p>R$<%= deal.amount %> </p></div>
+        </div>
       </div>
-
-     <!--  deal.transactions.pluck(:participation).inject(:+) -->
-
-
-      <div class="maturity" >
-        <div class="loaded" style="height:6px;width: <%= deal.rate_per_annum %>%"> </div>
-      </div>
-      <div class="descript-card">
-
-        <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
-        <div class="deal-amount"><p>R$<%= deal.amount %> </p></div>
-      </div>
-    </div>
-    <% end %>
+      <% end %>
     <% end %>
 
   </div>

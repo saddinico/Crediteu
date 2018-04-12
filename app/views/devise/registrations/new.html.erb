@@ -1,5 +1,6 @@
-<h2>Sign up</h2>
+
 <% if params[:is_company].present? %>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
@@ -15,20 +16,35 @@
     </div>
   <% end %>
 <% else %>
+
+
+ <div class="container-signup-investor">
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
+
+  <div class="investor-signup-form">
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :email, placeholder: 'email', label: false, required: true, autofocus: true %>
+      <%= f.input :password, placeholder: 'nova senha', label: false, required: true %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Cadastre-se", class: 'btn btn-success' %>
     </div>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
+
+  <div class="investor-pitch">
+    <h4>
+       Ajude pequenas empresas a crescer através de investimentos com rendimento acima do mercado
+    </h4>
+  </div>
 
 
-<%= render "devise/shared/links" %>
+
+
+
+</div>

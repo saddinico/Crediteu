@@ -7,4 +7,13 @@ class Investor < ApplicationRecord
 
   validates :cpf, presence: true, uniqueness: true
 
+    after_create :subscribe_to_newsletter
+
+  private
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self.user).call
+  end
+
+
 end

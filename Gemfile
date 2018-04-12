@@ -19,7 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
-gem 'cloudinary'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

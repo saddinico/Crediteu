@@ -1,0 +1,65 @@
+<!-- <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head>
+ -->
+
+<div class="container">
+
+
+
+  <div class="sim-grid">
+
+    <div class="form-sim">
+      <form action=''>
+        Yearly Income: <br>
+        <select name="Yearly Income" id='inc'>
+          <option value=1 selected>10k-90k</option>
+          <option value=2>100k-200k</option>
+          <option value=3>200k-300k</option>
+          <option value=4>500k-1M</option>
+        </select>
+        <br><br>
+        Number of Months: <br>
+        <select name="Number of Months" id='numb'>
+          <option value=6 selected>6</option>
+          <option value=8>8</option>
+          <option value=12>12</option>
+          <option value=24>24</option>
+        </select>
+        <br><br>
+        Loan Amount: <br>
+        <select name="Loan Amount" id='amo'>
+          <option value=20000 selected>R$20.000</option>
+          <option value=40000>R$40.000</option>
+          <option value=80000>R$80.000</option>
+          <option value=150000>R$160.000</option>
+        </select>
+        <br><br>
+
+
+        <input type="submit" id='buton' >
+      </form>
+    </div>
+
+    <div class="interest-sim">
+      <h2 class="hidden-div" id="hidiv">Your interest rate should be around:</h2>
+      <h2 id='testx'></h2>
+    </div>
+  </div>
+
+  <div >
+    <a href="/users/sign_up" id="but-sign-up" class="hidden-div">Sign Up!</a>
+  </div>
+</div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+document.getElementById("buton").addEventListener("click", (event) => {
+    event.preventDefault();
+
+    document.getElementById("hidiv").classList.remove('hidden-div');
+    document.getElementById("but-sign-up").classList.remove('hidden-div');
+    let rate = (4 - (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1)) / 10;
+    document.getElementById("testx").innerHTML = `${rate}% per month`
+});
+  </script>
+<% end %>

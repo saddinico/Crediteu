@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :investors
 
+  get 'pages/simulation'
+
   resources :companies
 
 

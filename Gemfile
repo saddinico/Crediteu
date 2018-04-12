@@ -17,6 +17,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
+gem 'gibbon'
+gem 'postmark-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

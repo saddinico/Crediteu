@@ -9,9 +9,9 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
       <% if current_user.is_company %>
-        <a href="" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+        <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
       <% else %>
-        <a href=<%= deals_path %> class="navbar-wagon-item navbar-wagon-link">Deals</a>
+        <a href="/investor" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
       <% end %>
     <% end %>
     <!-- Profile picture with dropdown list -->
@@ -21,7 +21,6 @@
         <img src=<%= asset_path 'burger.png'%> class="burger dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </ul>
       </div>

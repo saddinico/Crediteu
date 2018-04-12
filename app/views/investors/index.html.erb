@@ -1,13 +1,20 @@
-
-<ul>
-<% current_user.investor.transactions.each do |transaction| %>
-<li>Empresa: <%= transaction.deal.company.legal_name %>
-<br>
-Investido: <%= transaction.participation %> R$
-<br>
-Rendimento: <%= transaction.deal.rate_per_annum %> %
-<br>
-Prazo do investimento: <%= transaction.deal.maturity %> dias
-</li>
+<% if current_user.investor %>
+  <% if current_user.investor.transactions.present? %>
+    <ul>
+    <% current_user.investor.transactions.each do |transaction| %>
+      <li>Empresa: <%= transaction.deal.company.legal_name %>
+      <br>
+      Investido: <%= transaction.participation %> R$
+      <br>
+      Rendimento: <%= transaction.deal.rate_per_annum %> %
+      <br>
+      Prazo do investimento: <%= transaction.deal.maturity %> dias
+      </li>
+    <% end %>
+  <% else %>
+    <p>Você ainda não realizou transações</p>
+  <% end %>
+  </ul>
+<% else %>
+  <p>Você ainda não completou seu cadastro</p>
 <% end %>
-</ul>

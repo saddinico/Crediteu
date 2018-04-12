@@ -13,10 +13,9 @@
         <div class="overlay">
           <div class="text-deal">
             <ul class="list-unstyled">
-              <li> R$<%= deal.amount %> </li>
-              <li> <%= deal.rate_per_annum %>% </li>
-              <li> <%= deal.credit_rating %> </li>
-              <li> <%= deal.status %></li>
+              <li> Juros: <%= deal.rate_per_annum %>% </li>
+              <li> Rating: <%= deal.credit_rating %> </li>
+              <li> Status: <%= deal.status %></li>
             </ul>
           </div>
         </div>
@@ -30,7 +29,8 @@
       </div>
       <div class="descript-card">
 
-        <p><%= deal.company.legal_name %></p>
+        <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
+        <div class="deal-amount"><p>R$<%= deal.amount %> </p></div>
       </div>
     </div>
     <% end %>

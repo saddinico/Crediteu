@@ -1,6 +1,6 @@
 .card-photo {
   height: 255px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -37,6 +37,7 @@
 }
 
 .card-index-grid {
+  margin-top: 5vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -83,6 +84,21 @@ position: absolute;
 .text-deal {
 
   color: white;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight:bolder;
   padding: 16px 32px;
+}
+.card-deal{
+  box-shadow: 3px 3px 5px rgba(0,0,0,.1);
+
+  .deal-amount{
+    color:rgba(0,0,0,.4);
+    font-weight:thin;
+    font-size: 16px;
+    text-align: right;
+  }
+  .legal_name{
+    font-weight:bolder !important;
+  }
+
 }

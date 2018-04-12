@@ -4,6 +4,7 @@
   background-size: cover;
   height: 100vh;
 
+
   h1{
     color:rgba(255,255,255,1);
     font-family: 'Karla', sans-serif;
@@ -17,6 +18,10 @@
   p{
     color:white;
     font-size: 36px !important;
+  }
+
+  @media(max-width: 720px){
+    font-size:24px !important;
   }
 }
 

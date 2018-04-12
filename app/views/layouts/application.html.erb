@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css?family=Karla:700|Montserrat:700" rel="stylesheet">
   </head>
   <body>
-
     <% if request.original_url != root_url %>
       <%= render 'shared/navbar' %>
     <% end %>
@@ -21,9 +20,6 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= yield(:after_js) %>
   </body>

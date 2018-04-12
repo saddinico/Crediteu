@@ -12,8 +12,8 @@
       </div>
 
 
-      <%= link_to "Quero investir", new_user_registration_path, class: "btn btn-success btn-lg" %>
-      <%= link_to "Quero empréstimo", new_user_registration_path(:is_company => true), class: "btn btn-success btn-lg" %>
+      <%= link_to "Quero investir", new_user_registration_path, class: "btn btn-success btn-lg", style: "width: 250px; padding: 20px 0px; margin-right:10px;"%>
+      <%= link_to "Quero empréstimo", new_user_registration_path(:is_company => true), class: "btn btn-success btn-lg", style: "width: 250px; padding: 20px 0px;" %>
 
 
       <%if current_user.present? %>

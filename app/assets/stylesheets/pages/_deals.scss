@@ -46,6 +46,10 @@
 .descript-card {
   height: 20%;
   background-color: rgba(146, 151, 126, 0.1);
+  p {
+    padding: 5px 10px;
+    margin: 0px;
+  }
 }
 
 .maturity {
@@ -59,10 +63,7 @@
   background-color: rgba(0, 100, 150, 0.9) !important;
 }
 
-.descript-card p {
-  padding: 5px 10px;
-  margin: 0px;
-}
+
 
 .overlay {
 position: absolute;

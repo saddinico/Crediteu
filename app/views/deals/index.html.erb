@@ -57,11 +57,9 @@
         <div class="descript-card">
 
           <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
-<<<<<<< HEAD
-          <div class="deal-amount"><p>R$ <%=  number_with_delimiter((deal.amount).to_i) %> </p></div>
-=======
-          <div class="deal-amount"><p>R$<%= deal.amount %></p></div>
->>>>>>> 98a778bb4083e5bc03fb8ac95f4fd6745f99624d
+          <div class="deal-amount"><p>R$ <%= number_with_delimiter((deal.amount).to_i) %> </p></div>
+
+
         </div>
       </div>
       <% end %>

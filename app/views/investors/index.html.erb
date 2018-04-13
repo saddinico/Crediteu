@@ -27,7 +27,7 @@
           </div>
           <div class="message-status">
             <p class="status accepted">Aprovado</p>
-            <p class="price"><%= transaction.participation %> mil reais</p>
+            <p class="price">R$ <%= number_with_delimiter(transaction.participation) %></p>
           </div>
         </li>
 

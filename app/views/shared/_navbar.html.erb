@@ -17,11 +17,19 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-        <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Deals</a>
     <% if current_user %>
-      <% if current_user.is_company %>
+      <% if current_user.company == nil && current_user.is_company %>
+        <%= link_to 'Completar cadastro', new_company_path(current_user), class: 'complete-registration' %>
+      <% elsif !current_user.is_company && current_user.investor == nil %>
+        <%= link_to 'Completar cadastro', new_investor_path(current_user), class: 'complete-registration' %>
+      <% end %>
+    <% end %>
+          <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Deals</a>
+
+    <% if current_user %>
+      <% if current_user.company %>
         <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
-      <% else %>
+      <% elsif current_user.investor  %>
         <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
       <% end %>
     <% end %>

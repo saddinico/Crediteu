@@ -8,8 +8,9 @@
   </div>
 
   <div class="grid-deal-show">
-
- <%= cl_image_tag @deal.company.photo, :width => 150, :height => 150, :crop => :fill %>
+    <div style="margin-left:300px;">
+      <%= cl_image_tag @deal.company.photo, :width => 150, :height => 150, :crop => :fill %>
+    </div>
 
     <div class="deal-info">
       <ul class="list-unstyled">
@@ -19,8 +20,9 @@
         <li> Juros a.a. : <%= @deal.rate_per_annum %>% ao ano</li>
         <li> Ratings de credito <%= @deal.credit_rating %> </li>
         <li> Status: <%= @deal.status %></li>
+        <br>
           <% if @deal.status == 'live' && current_user.investor %>
-            <%= link_to 'Investir', new_deal_transaction_path(@deal) %>
+            <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success' %>
           <% elsif @deal.status == 'live' && !current_user.investor %>
             <%= link_to 'Investir', new_investor_path(current_user), class: 'btn btn-success' %>
         <% end %>

@@ -21,11 +21,13 @@
         <li> Ratings de credito <%= @deal.credit_rating %> </li>
         <li> Status: <%= @deal.status %></li>
         <br>
+        <% if current_user %>
           <% if @deal.status == 'live' && current_user.investor %>
             <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success' %>
           <% elsif @deal.status == 'live' && !current_user.investor %>
             <%= link_to 'Investir', new_investor_path(current_user), class: 'btn btn-success' %>
         <% end %>
+      <% end %>
       </ul>
     </div>
 

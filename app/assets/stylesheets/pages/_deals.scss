@@ -81,6 +81,16 @@ position: absolute;
   opacity: 1;
 }
 
+.company-logo{
+  position:absolute;
+  top:10px;
+  right:10px;
+  img {
+    width: 70px;
+    border-radius: 500px;
+  }
+}
+
 .text-deal {
 
   color: white;
@@ -90,7 +100,7 @@ position: absolute;
   text-align: right;
 
   p{
-    font-size:16px !important;
+    font-size:20px !important;
     font-weight: lighter !important;
   }
 }
@@ -128,7 +138,6 @@ position: absolute;
   .interest-value{
     font-size:36px;
     float: left;
-    letter-spacing: -5px;
     font-weight:bolder;
 
   }

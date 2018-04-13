@@ -5,19 +5,36 @@
     <% @deals.each do |deal| %>
       <% if deal.status != 'pending' %>
       <div class="card-deal">
-        <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+        <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
 
 
           <%= link_to "", deal_path(deal), class: "card-link" %>
 
+          <% if deal.status == "live" %>
+            <div class="deal-status", style="color: rgba(255,80,80,1);"><p><i class="fas fa-circle"></i> <%= deal.status %></p></div>
+          <% elsif deal.status == "coming soon" %>
+            <div class="deal-status", style="color:rgba(255,255,255,.6);"><p><%= deal.status %></p></div>
+          <% else %>
+            <div class="deal-status", style="color:rgba(100,255,20,1);"><p><i class="fas fa-check"></i> <%= deal.status %></p></div>
+          <% end %>
+          <div class="deal-interest">
+            <div class="interest-value"><%= deal.rate_per_annum %>%</div>
+            <div class="interest-time">anual</div>
+          </div>
+
+          <div class="deal-rating">
+            <div class="rating-value"><%= deal.credit_rating %></div>
+            <div class="rating-label">rating</div>
+          </div>
           <div class="overlay">
             <div class="text-deal">
               <ul class="list-unstyled">
                 <li> Juros: <%= deal.rate_per_annum %>% </li>
                 <li> Rating: <%= deal.credit_rating %> </li>
                 <li> Status: <%= deal.status %></li>
-                <%= cl_image_tag deal.company.photo %>
+                <li> Duração: <%= deal.maturity %> dias</li>
               </ul>
+                  <p><%=deal.company.company_description%></p>
             </div>
           </div>
         </div>
@@ -35,7 +52,11 @@
         <div class="descript-card">
 
           <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
+<<<<<<< HEAD
           <div class="deal-amount"><p>R$ <%=  number_with_delimiter((deal.amount).to_i) %> </p></div>
+=======
+          <div class="deal-amount"><p>R$<%= deal.amount %></p></div>
+>>>>>>> 98a778bb4083e5bc03fb8ac95f4fd6745f99624d
         </div>
       </div>
       <% end %>

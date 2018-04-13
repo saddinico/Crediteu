@@ -56,7 +56,7 @@
 
 .loaded {
   color:#fff!important;
-  background-color:#4CAF50!important;
+  background-color: rgba(0, 100, 150, 0.9) !important;
 }
 
 .descript-card p {
@@ -74,7 +74,7 @@ position: absolute;
   width: 100%;
   opacity: 0;
   transition: .7s ease;
-  background-color: rgba(123, 224, 173, 0.9);
+  background:linear-gradient(-225deg, rgba(0,150,180,0.9), rgba(0,36,61,0.9)), rgba(123, 224, 173, 0.9);
 }
 
 .card-photo:hover .overlay{
@@ -87,7 +87,15 @@ position: absolute;
   font-size: 24px;
   font-weight:bolder;
   padding: 16px 32px;
+  text-align: right;
+
+  p{
+    font-size:16px !important;
+    font-weight: lighter !important;
+  }
 }
+
+
 .card-deal{
   box-shadow: 3px 3px 5px rgba(0,0,0,.1);
 
@@ -97,8 +105,58 @@ position: absolute;
     font-size: 16px;
     text-align: right;
   }
-  .legal_name{
+  .legal-name{
     font-weight:bolder !important;
+  }
+
+  .deal-status{
+    padding:10px 15px;
+    font-weight:bolder;
+  }
+
+
+  .deal-interest{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    width:300px;
+    color:rgba(255,255,255,1) !important;
+    display:flex;
+
+  }
+
+  .interest-value{
+    font-size:36px;
+    float: left;
+    letter-spacing: -5px;
+    font-weight:bolder;
+
+  }
+
+  .interest-time{
+    font-size:24px;
+    padding-top:13px;
+    margin-left: 10px;
+
+  }
+
+  .deal-rating{
+    display:flex;
+    position:absolute;
+    right:10px;
+    bottom: 10px;
+  }
+
+  .rating-label{
+    font-size:24px;
+    padding-top:13px;
+    margin-left: 5px;
+
+  }
+
+  .rating-value{
+    font-size:36px;
+    font-weight:bolder;
   }
 
 }

@@ -1,10 +1,19 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand" style="text-decoration: none;">
- <!--    <img src="images/logo.png" alt="logo"> -->
-      <h1>crediteu</h1>
+  <% if current_user.present? %>
+    <a href="/deals" class="navbar-wagon-brand" style="text-decoration: none;">
+   <!--    <img src="images/logo.png" alt="logo"> -->
+        <h1>crediteu</h1>
 
-  </a>
+    </a>
+
+    <% else %>
+      <a href="/" class="navbar-wagon-brand" style="text-decoration: none;">
+         <!--    <img src="images/logo.png" alt="logo"> -->
+         <h1>crediteu</h1>
+
+      </a>
+    <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -22,7 +31,7 @@
         <div class="dropdown">
           <img src="<%= asset_path 'burger.png'%>" class="burger dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Profile</a></li>
+            <!-- <li><a href="#">Profile</a></li> -->
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </div>

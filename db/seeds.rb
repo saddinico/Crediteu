@@ -153,25 +153,73 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      )
 
 
-
-6.times do |x|
-  Deal.create!(company_id: x + 1,
+ Deal.create!(company_id: 1,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: Faker::Number.between(25000, 1000000),
+              amount: 600000,
+              rate_per_annum: 18,
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: 'coming soon',
+              )
+
+  Deal.create!(company_id: 2,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 1000000,
+              rate_per_annum: 20,
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: 'completed',
+              )
+
+   Deal.create!(company_id: 3,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 100000,
+              rate_per_annum: 28,
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: 'live',
+              )
+
+    Deal.create!(company_id: 4,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 250000,
+              rate_per_annum: 24,
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: 'live',
+              )
+
+     Deal.create!(company_id: 5,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 300000,
+              rate_per_annum: 19,
+              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              status: 'coming soon',
+              )
+
+      Deal.create!(company_id: 6,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 175000,
               rate_per_annum: Faker::Number.between(15, 25).to_s + "," + "#{(0..100).to_a.sample}",
               credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
-              status: ["coming soon", "completed", "live"].sample,
+              status: 'live',
               )
-end
+
 
 
 20.times do |x|
 
   Transaction.create!(investor_id: (1..10).to_a.sample,
-                     deal_id: (1..6).to_a.sample,
+                     deal_id: [3, 4, 6].sample,
                      participation: [2000, 4000, 8000].sample,
                      )
 end
+
+Transaction.create!(investor_id: (1..10).to_a.sample,
+                     deal_id: 2 ,
+                     participation: 1000000,
+                     )
 
 puts "Done!"

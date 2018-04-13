@@ -1,34 +1,36 @@
 
 <div class="container">
 
+
+
   <div class="deal-show-title">
     <h1 class="text-center"><%= @deal.company.legal_name %></h1>
   </div>
 
   <div class="grid-deal-show">
 
-    <div class="deal-photo-desc" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random'); background-size: center;">
-    </div>
+ <%= cl_image_tag @deal.company.photo, :width => 150, :height => 150, :crop => :fill %>
 
     <div class="deal-info">
       <ul class="list-unstyled">
-        <li> R$<%= @deal.amount %> </li>
-        <li> Juros: <%= @deal.rate_per_annum %>% ao ano</li>
-        <li> <%= @deal.credit_rating %> </li>
+        <li> Montante: R$ <%= number_with_delimiter(@deal.amount) %> </li>
+        <li> Financiado ate agora: R$ <%= number_with_delimiter(@deal.transactions.pluck(:participation).inject(:+)) %> -
+        <%= ((@deal.transactions.pluck(:participation).inject(:+).to_f / @deal.amount) * 100).round %> %</li>
+        <li> Juros a.a. : <%= @deal.rate_per_annum %>% ao ano</li>
+        <li> Ratings de credito <%= @deal.credit_rating %> </li>
         <li> Status: <%= @deal.status %></li>
           <% if @deal.status == 'live' && current_user.investor %>
             <%= link_to 'Investir', new_deal_transaction_path(@deal) %>
           <% elsif @deal.status == 'live' && !current_user.investor %>
-            <%= link_to 'Investir', new_investor_path(current_user) %>
+            <%= link_to 'Investir', new_investor_path(current_user), class: 'btn btn-success' %>
         <% end %>
       </ul>
     </div>
-    <%= cl_image_tag @deal.company.photo %>
 
     </div>
 
     <div class="deal-company-info">
-      <h2>More about this company:</h2>
+      <h2>Mais sobre essa empresa: </h2>
       <ul class="list-unstyled">
         <li><strong>Foundation:</strong> <%= @deal.company.date_of_foundation %></li>
         <li> <strong>About:</strong> <%= @deal.company.company_description %> </li>
@@ -36,7 +38,7 @@
       </ul>
 
       <div class="deal-company-other-info">
-        <h2>Other info:</h2>
+        <h2>Mais Informações: </h2>
         <ul>
 
           <li>Address: <%=@deal.company.address%></li>

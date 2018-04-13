@@ -157,8 +157,8 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 600000,
-              rate_per_annum: 18,
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              rate_per_annum: 16,
+              credit_rating: 'A',
               status: 'coming soon',
               )
 
@@ -167,7 +167,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 1000000,
               rate_per_annum: 20,
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              credit_rating: 'BB',
               status: 'completed',
               )
 
@@ -175,8 +175,8 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 100000,
-              rate_per_annum: 28,
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              rate_per_annum: 26,
+              credit_rating: 'B',
               status: 'live',
               )
 
@@ -184,8 +184,8 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 250000,
-              rate_per_annum: 24,
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              rate_per_annum: 28,
+              credit_rating: 'CCC',
               status: 'live',
               )
 
@@ -194,7 +194,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 300000,
               rate_per_annum: 19,
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              credit_rating: 'BBB',
               status: 'coming soon',
               )
 
@@ -202,8 +202,8 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 175000,
-              rate_per_annum: Faker::Number.between(15, 25).to_s + "," + "#{(0..100).to_a.sample}",
-              credit_rating: ['AAA', 'AA', 'A', 'BBB', 'BB', 'B', 'CCC', 'CC', 'C', 'D'].sample,
+              rate_per_annum: 30,
+              credit_rating: 'CC',
               status: 'live',
               )
 

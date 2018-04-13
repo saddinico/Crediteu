@@ -5,17 +5,22 @@
     <% @deals.each do |deal| %>
       <% if deal.status != 'pending' %>
       <div class="card-deal">
-        <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+        <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dz9p1e6np/image/upload/v1523544914/photo-1518107616985-bd48230d3b20.jpg");">
+
+
 
           <%= link_to "", deal_path(deal), class: "card-link" %>
 
           <% if deal.status == "live" %>
-            <div class="deal-status", style="color: rgba(255,80,80,1);"><p><i class="fas fa-circle"></i> <%= deal.status %></p></div>
+            <div class="deal-status", style="color: rgba(100,255,20,1);"><p><%= deal.status %></p></div>
           <% elsif deal.status == "coming soon" %>
             <div class="deal-status", style="color:rgba(255,255,255,.6);"><p><%= deal.status %></p></div>
           <% else %>
-            <div class="deal-status", style="color:rgba(100,255,20,1);"><p><i class="fas fa-check"></i> <%= deal.status %></p></div>
+            <div class="deal-status", style="color:rgba(255,80,80,1);"><p> <%= deal.status %></p></div>
           <% end %>
+            <div class="company-logo">
+           <%= cl_image_tag deal.company.photo %>
+          </div>
           <div class="deal-interest">
             <div class="interest-value"><%= deal.rate_per_annum %>%</div>
             <div class="interest-time">anual</div>

@@ -1,22 +1,55 @@
-<h2>Valor Total Arrecadado:
-  <% total = 0 %>
 
-  <% if !current_user.company.nil? %>
-    <% current_user.company.transactions.each do |x|%>
-      <% total += x.participation %>
-    <% end %>
-  <% end %>
-  R$<%= total %>
-</h2>
+  <body class='bodydash'>
+    <div class="container">
+      <% if current_user.company && current_user.company.deals.empty? %>
+        <div id="novemp">
+          <%= link_to 'Novo Empréstimo', new_deal_path(@company), id: 'bilu', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+      <h2 id='hdash'>Valor Total Arrecadado:
+        <% total = 0 %>
 
-<% if !current_user.company.nil? %>
-<% current_user.company.transactions.each do |x| %>
-    <div>
-      <h5>Investidor ID - <%= x.investor_id %> </h5>
-      <h5>Participação - R$<%= x.participation %></h5>
-      <h5>Criado em: <%= x.created_at %></h5>
+        <% if !current_user.company.nil? %>
+          <% current_user.company.transactions.each do |x|%>
+            <% total += x.participation %>
+          <% end %>
+        <% end %>
+        R$<%= total %>
+      </h2>
+
+
+      <div class="tabs">
+        <a href="#" class="tab active">crediteu</a>
+      </div>
+
+      <ul class="inbox">
+          <% if current_user.company && current_user.company.transactions %>
+          <% current_user.company.transactions.each do |transaction| %>
+
+
+
+        <li class="message">
+<!--           <img src='https://source.unsplash.com/random' alt="" class="avatar-large"> -->
+          <div class="message-name">
+            <h3>Investidor</h3>
+            <p>ID: <%= transaction.investor_id %></p>
+          </div>
+          <div class="message-body">
+            <p><strong> <%= transaction.created_at.strftime('%d.%m.%y') %> - <%= transaction.created_at.strftime("%I:%M%p") %></strong></p>
+            <p>
+
+              Valor correspondente a <%= (transaction.participation.to_f / transaction.deal.amount.to_i) * 100 %>% do total pedido
+            </p>
+          </div>
+          <div class="message-status">
+            <p class="status accepted">Participação:</p>
+            <p class="price">R$ <%= transaction.participation %></p>
+          </div>
+        </li>
+
+      <% end %>
+      <% end %>
+      </ul>
+
     </div>
-  <% end %>
-<% end %>
-
-<%= link_to 'novo emprestimo', new_deal_path(@company) %>
+  </body>

@@ -6,7 +6,12 @@
           <%= link_to 'Novo Empréstimo', new_deal_path(@company), id: 'bilu', class: 'btn btn-success' %>
         </div>
       <% end %>
-      <h2 id='hdash'>Valor Total Arrecadado:
+
+
+
+  <div class="inner-content text-center">
+
+      <h2 id='hdash' class='jubilu'>Valor Total Arrecadado:
         <% total = 0 %>
 
         <% if !current_user.company.nil? %>
@@ -16,7 +21,17 @@
         <% end %>
         R$<%= total %>
       </h2>
-      <br>
+
+      <% if current_user.company && !current_user.company.deals.empty? %>
+      <div class="c100 p<%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%> center">
+          <span><%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%>%</span>
+          <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+      </div>
+      <% end %>
+
+
+  </div>
+
 
       <div class="tabs">
         <a href="#" class="tab active">crediteu</a>
@@ -38,7 +53,7 @@
             <p><strong> <%= transaction.created_at.strftime('%d.%m.%y') %> - <%= transaction.created_at.strftime("%I:%M%p") %></strong></p>
             <p>
 
-              Valor correspondente a <%= (transaction.participation.to_f / transaction.deal.amount.to_i) * 100 %>% do total pedido
+              Valor correspondente a <%= ((transaction.participation.to_f / transaction.deal.amount.to_i) * 100).to_i %>% do total pedido
             </p>
           </div>
           <div class="message-status">

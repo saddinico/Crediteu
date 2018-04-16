@@ -7,11 +7,8 @@
         <% if deal.status != 'pending' %>
         <div class="card-deal">
           <div class="card-photo">
-
-
-
-
             <%= link_to "", deal_path(deal), class: "card-link" %>
+
             <div class="company-logo-name">
               <div class="legal-name">
                 <%= deal.company.legal_name %>

@@ -57,7 +57,7 @@
             <p><strong> <%= transaction.created_at.strftime('%d.%m.%y') %> - <%= transaction.created_at.strftime("%I:%M%p") %></strong></p>
             <p>
 
-              Valor correspondente a <%= (transaction.participation.to_f / transaction.deal.amount.to_i) * 100 %>% do total pedido
+              Valor correspondente a <%= ((transaction.participation.to_f / transaction.deal.amount.to_i) * 100).to_i %>% do total pedido
             </p>
           </div>
           <div class="message-status">

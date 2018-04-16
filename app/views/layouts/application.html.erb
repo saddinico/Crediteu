@@ -12,13 +12,15 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
   </head>
   <body>
+
     <% if request.original_url != root_url && current_user %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render "shared/navbar_transparent" %>
     <% end %>
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
+
+     <%= render 'shared/flashes' %>
+
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>

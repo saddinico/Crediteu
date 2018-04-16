@@ -4,4 +4,12 @@ class TransactionPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def new?
+    !user.is_company
+  end
+
+  def create?
+    !user.is_company
+  end
 end

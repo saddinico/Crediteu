@@ -5,11 +5,13 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @deal = Deal.find(params[:deal_id])
+    authorize @transaction
   end
 
   def create
     @transaction = Transaction.new(transaction_params)
     @deal = Deal.find(params[:deal_id])
+    authorize @transaction
 
     @transaction.deal_id = @deal.id
     @transaction.investor_id = current_user.investor.id

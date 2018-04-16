@@ -29,6 +29,10 @@
       </div>
       <% end %>
 
+      <% if current_user.company.deals.last != nil %>
+      <h3> Status do pedido: <%= current_user.company.deals.last.status %></h3>
+      <% end %>
+
 
   </div>
 

@@ -6,6 +6,15 @@ class DealPolicy < ApplicationPolicy
   end
 
   def create?
-    user.company
+    user.is_company
+  end
+
+  def update?
+    user.is_company
+  end
+
+
+  def show?
+    true
   end
 end

@@ -32,7 +32,7 @@ class InvestorsController < ApplicationController
   end
 
   def index
-    @investor = current_user.investor
+    @investor = policy_scope(Investor).all
   end
 
   def destroy
@@ -43,7 +43,7 @@ class InvestorsController < ApplicationController
   private
 
   def set_investor
-    @investor = Investor.find(params[:id])
+    @investor = Investor.where(user_id: params[:id]).last
   end
 
   def investor_params

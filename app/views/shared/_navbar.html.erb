@@ -39,7 +39,11 @@
         <div class="dropdown">
           <img src="<%= asset_path 'burger.png'%>" class="burger dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <!-- <li><a href="#">Profile</a></li> -->
+            <% if current_user.is_company && current_user.company != nil %>
+            <li><%= link_to "Edit profile", edit_company_path(current_user) %></li>
+            <% elsif !current_user.is_company && current_user.investor != nil  %>
+            <li><%= link_to "Edit profile", edit_investor_path(current_user) %></li>
+            <% end %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </div>

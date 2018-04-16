@@ -30,11 +30,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
+    authorize @company
   end
 
   def update
-
+    authorize @company
     if @company.update(company_params)
 
     else
@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    @company = Company.find(params[:id])
+    @company = Company.where(user_id: params[:id]).last
   end
 
   def company_params

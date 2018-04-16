@@ -1,19 +1,24 @@
-<%= simple_form_for(@company) do |f| %>
-  <%= f.input :legal_name, label: "Name" %>
-  <%= f.input :address, label:"Address" %>
-  <%= f.input :cnpj, label:"CNPJ" %>
-  <%= f.input :date_of_foundation, label:"Date of Foundation"  %>
-  <%= f.input :phone, label:"Phone" %>
-  <%= f.input :manager_first_name, label:"Manager First Name"  %>
-  <%= f.input :manager_last_name, label:"Manager Last Name"  %>
-  <%= f.input :manager_cpf, label:"Manager CPF"  %>
-  <%= f.input :manager_phone, label:"Manager Phone"  %>
-  <%= f.input :manager_email, label:"Manager Email"  %>
-  <%= f.input :company_description, label:"Company Description"  %>
-  <%= f.input :current_billing, label:"Current Billing"  %>
-  <%= f.input :website, label:"Website"  %>
-  <%= f.input :number_of_employees, label:"Number of Employees"  %>
-  <%= f.input :use_of_proceeds, label:"Use of Proceeds"  %>
-  <%= f.submit %>
+<div class="background">
+  <div class="form-investor-and-company-new">
+    <%= simple_form_for(@company) do |f| %>
+      <%= f.input :legal_name, label: "Name" %>
+      <%= f.input :address, label:"Address" %>
+      <%= f.input :cnpj, label:"CNPJ" %>
+      <%= f.input :date_of_foundation, label:"Date of Foundation"  %>
+      <%= f.input :phone, label:"Phone" %>
+      <%= f.input :manager_first_name, label:"Manager First Name"  %>
+      <%= f.input :manager_last_name, label:"Manager Last Name"  %>
+      <%= f.input :manager_cpf, label:"Manager CPF"  %>
+      <%= f.input :manager_phone, label:"Manager Phone"  %>
+      <%= f.input :manager_email, label:"Manager Email"  %>
+      <%= f.input :company_description, label:"Company Description"  %>
+      <%= f.input :current_billing, label:"Current Billing"  %>
+      <%= f.input :website, label:"Website"  %>
+      <%= f.input :number_of_employees, label:"Number of Employees"  %>
+      <%= f.input :use_of_proceeds, label:"Use of Proceeds"  %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
 
-<% end %>
+

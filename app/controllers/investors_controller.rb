@@ -4,11 +4,13 @@ class InvestorsController < ApplicationController
 
   def new
     @investor = Investor.new
+    authorize @investor
   end
 
   def create
     @investor = Investor.new(investor_params)
     @investor.user = current_user
+    authorize @investor
      if @investor.save
       redirect_to '/deals'
     else
@@ -17,9 +19,11 @@ class InvestorsController < ApplicationController
   end
 
   def edit
+    authorize @investor
   end
 
   def update
+    authorize @investor
     if @investor.update(investor_params)
      redirect_to '/'
     else
@@ -32,6 +36,7 @@ class InvestorsController < ApplicationController
   end
 
   def destroy
+    authorize @investor
     @investor.destroy
   end
 

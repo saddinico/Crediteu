@@ -1,12 +1,11 @@
 class DealsController < ApplicationController
 
-
   def index
     @deals = policy_scope(Deal).all
   end
 
   def show
-    @deal = Deal.find(params[:id]
+    @deal = Deal.find(params[:id])
     authorize @deal
     @company = @deal.company
 

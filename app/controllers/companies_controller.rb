@@ -3,16 +3,18 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :destroy, :update]
 
   def index
-    @companies = Company.all
+    @companies = policy_scope(Company).all
   end
 
   def new
     @company = Company.new
+    authorize @company
   end
 
   def create
     @company = Company.new(company_params)
     @company.user = current_user
+    authorize @company
     if @company.save
        redirect_to '/deals'
     else
@@ -28,11 +30,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
+    authorize @company
   end
 
   def update
-
+    authorize @company
     if @company.update(company_params)
 
     else
@@ -50,7 +52,7 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    @company = Company.find(params[:id])
+    @company = Company.where(user_id: params[:id]).last
   end
 
   def company_params

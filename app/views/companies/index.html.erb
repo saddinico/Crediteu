@@ -22,19 +22,19 @@
         R$<%= total %>
       </h2>
 
-                        <% if current_user.company && !current_user.company.deals.empty? %>
-                        <div class="c100 p<%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%> center">
-                            <span><%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%>%</span>
-                            <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                        </div>
-                        <% end %>
+      <% if current_user.company && !current_user.company.deals.empty? %>
+      <div class="c100 p<%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%> center">
+          <span><%=((current_user.company.deals.last.transactions.pluck(:participation).inject(:+).to_f / current_user.company.deals.last.amount) * 100).to_i%>%</span>
+          <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+      </div>
+      <% end %>
+
+      <% if current_user.company.deals.last != nil %>
+      <h3> Status do pedido: <%= current_user.company.deals.last.status %></h3>
+      <% end %>
 
 
   </div>
-
-
-
-
 
 
       <div class="tabs">

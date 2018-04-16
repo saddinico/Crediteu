@@ -1,6 +1,7 @@
 .wrapper {
-  background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dz9p1e6np/image/upload/v1523544914/photo-1518107616985-bd48230d3b20.jpg");
+  // background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dz9p1e6np/image/upload/v1523544914/photo-1518107616985-bd48230d3b20.jpg");
   padding-top: 30px;
+  background-color: rgba(255,255,255,1);
 }
 
 
@@ -11,55 +12,67 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding:50px;
+
+
+}
+
+.deal-content{
+  position:absolute;
+  left: 270px;
+  top:20px;
+  width: 250px;
 
 }
 
 .company-logo{
-
+  position: absolute;
+  left: 15px;
+  top: 15px;
   img {
-    width: 100px;
+    width: 230px;
     border-radius: 50%;
   }
 }
 
 .legal-name{
     font-weight:bolder !important;
-    position: absolute;
-    left: 5px;
+    font-size:32px;
+    color: rgba(0,0,0,1);
+    line-height:30px;
 }
 
-.interest-value{
-    font-size:36px;
-    float: left;
-    font-weight:bolder;
+
+.interest-and-rating{
+  margin-top:10px;
+  font-size:24px;
+  line-height: 40px;
+  font-weight:lighter;
+  color:rgba(0,0,0,.6);
+
+  .interest-value{
+
+  }
+
+
 }
 
-.rating-value{
-    font-size:36px;
-    font-weight:bolder;
-}
+
+
+
 
 .company-description {
+ width:400px;
+ text-align: center;
+ position:absolute;
+ top:80px;
+ right:20px;
+ font-size: 22px;
+ font-weight:lighter;
+
 }
 
-.deal-duration {
-}
 
-
-
-// .card-description {
-//   position: absolute;
-//   bottom: 10px;
-//   left: 10px;
-// }
-// .card-description h2 {
-//   font-size: 24px;
-// }
-// .card-description p {
-//   font-size: 14px;
-//   opacity: 0.7;
-//   font-weight: lighter;
-// }
 .card-link {
   position: absolute;
   top: 0;
@@ -81,7 +94,7 @@
 
 .descript-card {
   height: 40px;
-  background-color: white;
+  background-color: rgba(0,0,0,.03);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,9 +146,11 @@
 
 
 .card-deal{
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
   height: 300px;
+  margin: 0px 100px;
   position: relative;
+
 
 
   .deal-interest{

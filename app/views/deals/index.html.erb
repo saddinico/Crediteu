@@ -10,17 +10,27 @@
             <%= link_to "", deal_path(deal), class: "card-link" %>
 
             <div class="company-logo-name">
-              <div class="legal-name">
-                <%= deal.company.legal_name %>
-              </div>
               <div class="company-logo">
                 <%= cl_image_tag deal.company.photo %>
               </div>
             </div>
-            <div class="interest-value"><%= deal.rate_per_annum %>% .a.a</div>
-            <div class="rating-value"><%= deal.credit_rating %> rating</div>
-            <div class="company-description"><%= deal.company.company_description %></div>
-            <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+            <div class="deal-content">
+              <div class="legal-name">
+                  <%= deal.company.legal_name %>
+                </div>
+              <div class="interest-and-rating">
+                <div class="interest-value"><strong> <%= deal.rate_per_annum %>% .a.a</strong></div>
+                <div class="rating-value"><strong><%= deal.credit_rating %> rating</strong></div>
+                <div class="deal-time">
+                  <div class="deal-start">Inicio: <%= deal.start_date.strftime('%e/%m/%Y') %></div>
+                  <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+              </div>
+              </div>
+            </div>
+
+
+            <div class="company-description"><i><%= deal.company.company_description %></i></div>
+
           </div>
 
           <div class="deal-completion" >
@@ -32,9 +42,9 @@
           <div class="descript-card">
             <div class="status">
               <% if deal.status == "live" %>
-              <div class="deal-status", style="color: rgba(100,255,20,1);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
+              <div class="deal-status", style="color: rgba(100,150,20,1);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
               <% elsif deal.status == "coming soon" %>
-                <div class="deal-status", style="color:black;"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
+                <div class="deal-status", style="color:rgba(0,0,0,.5);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
               <% else %>
                 <div class="deal-status", style="color:rgba(255,80,80,1);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
               <% end %>

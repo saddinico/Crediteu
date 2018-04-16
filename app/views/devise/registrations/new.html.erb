@@ -7,7 +7,7 @@
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-
+    <div class="new-company-and-investor">
       <div class="signup-form">
 
         <div class="form-inputs">
@@ -21,16 +21,16 @@
 
       </div>
 
-      <div class="simulation">
-      <%= link_to "Simule o emprestimo", pages_simulation_path, class: 'btn btn-success btn-block btn-lg' %>
-      </div>
-        <div class="company-pitch">
-          <h4>
-         Peca emprestimo para finaciar o seu negocio e aproveite juros muito abaixo do mercado
-          </h4>
-        </div>
 
+      <div class="company-pitch">
+        <h4>
+         Peça emprestimo para finaciar o seu negocio e aproveite juros muito abaixo do mercado
+        </h4>
+        <%= link_to "Simule o emprestimo", pages_simulation_path, class: 'btn btn-success btn-lg' %>
       </div>
+    </div>
+
+  </div>
 
 <% end %>
   </div>
@@ -44,24 +44,25 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
+    <div class="new-company-and-investor">
+      <div class="signup-form">
+        <div class="form-inputs">
+          <%= f.input :email, placeholder: 'email', label: false, required: true, autofocus: true %>
+          <%= f.input :password, placeholder: 'nova senha', label: false, required: true %>
+        </div>
 
-    <div class="signup-form">
-      <div class="form-inputs">
-        <%= f.input :email, placeholder: 'email', label: false, required: true, autofocus: true %>
-        <%= f.input :password, placeholder: 'nova senha', label: false, required: true %>
+        <div class="form-actions">
+          <%= f.button :submit, "Cadastre-se", class: 'btn btn-success btn-block btn-lg' %>
+        </div>
+        <% end %>
+
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Cadastre-se", class: 'btn btn-success btn-block btn-lg' %>
+      <div class="investor-pitch">
+        <h4>
+           Ajude pequenas empresas a crescer através de investimentos com rendimento acima do mercado
+        </h4>
       </div>
-      <% end %>
-
-    </div>
-
-    <div class="investor-pitch">
-      <h4>
-         Ajude pequenas empresas a crescer através de investimentos com rendimento acima do mercado
-      </h4>
     </div>
   </div>
 <% end %>

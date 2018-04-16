@@ -1,0 +1,20 @@
+.background{
+  background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dz9p1e6np/image/upload/v1523544914/photo-1518107616985-bd48230d3b20.jpg");
+  background-size: cover;
+}
+
+
+.form-investor-and-company-new{
+  margin: 0px 300px 0px 300px;
+  padding: 50px 0px;
+  abbr{
+    display:none;
+  }
+  label{
+    color: white;
+    font-weight: lighter;
+    font-size:24px;
+  }
+}
+
+

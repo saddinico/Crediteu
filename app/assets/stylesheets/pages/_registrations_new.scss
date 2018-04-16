@@ -7,29 +7,32 @@
 }
 
 .signup-form {
-  position: absolute;
+  // position: absolute;
+  // left: 100px;
+  // top: 35vh;
   width: 30vw;
-  left: 100px;
-  top: 35vh;
   font-size: 15px;
   color: white;
   font-size: 10px;
 }
 
 .investor-pitch, .company-pitch {
- position: absolute;
- top: 300px;
- right: 50px;
- width: 600px;
+  text-align: right;
+  width: 40vw;
   h4 {
   font-size: 32px;
   color: white;
   font-weight: lighter;
-  text-align: right;
+  margin-top: 0px;
   line-height: 40px;
   }
 }
 
+.new-company-and-investor{
+  display: flex;
+  margin: 30vh 50px 0px 50px;
+  justify-content:space-around;
+}
 
 .company-signup-form {
  background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dta0lx6co/image/upload/v1523560164/photo-1466779561253-0a08336ba2ab.jpg
@@ -37,11 +40,11 @@
  background-size: cover;
  height: 100vh;
  position: relative;
+
 }
 
 .simulation {
-  position: absolute;
-  right: 300px;
-  bottom: 200px;
-
+ // position: absolute;
+ // top: 300px;
+ // left: 50px;
 }

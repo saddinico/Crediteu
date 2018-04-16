@@ -19,7 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
-
+gem 'geocoder'
 gem 'gibbon'
 gem 'postmark-rails'
 

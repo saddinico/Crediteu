@@ -8,4 +8,7 @@ class Company < ApplicationRecord
   :manager_email, :manager_phone, :current_billing, :company_description, :use_of_proceeds,
   :number_of_employees, presence: true
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
 end

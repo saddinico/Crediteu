@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.user = current_user
     if @company.save
-
+       redirect_to '/deals'
     else
       puts "=================="
       puts @company.errors.full_messages

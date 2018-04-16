@@ -1,68 +1,55 @@
-<div class="container">
-  <div class="card-index-grid">
+<div class="wrapper">
+  <div class="container">
+    <div class="card-index-grid">
 
 
-    <% @deals.each do |deal| %>
-      <% if deal.status != 'pending' %>
-      <div class="card-deal">
-        <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(0,150,180,0.9) 0%, rgba(0,36,61,0.9) 50%), url("http://res.cloudinary.com/dz9p1e6np/image/upload/v1523544914/photo-1518107616985-bd48230d3b20.jpg");">
+      <% @deals.each do |deal| %>
+        <% if deal.status != 'pending' %>
+        <div class="card-deal">
+          <div class="card-photo">
 
 
 
 
-          <%= link_to "", deal_path(deal), class: "card-link" %>
-
-          <% if deal.status == "live" %>
-            <div class="deal-status", style="color: rgba(100,255,20,1);"><p><%= deal.status %></p></div>
-          <% elsif deal.status == "coming soon" %>
-            <div class="deal-status", style="color:rgba(255,255,255,.6);"><p><%= deal.status %></p></div>
-          <% else %>
-            <div class="deal-status", style="color:rgba(255,80,80,1);"><p> <%= deal.status %></p></div>
-          <% end %>
-            <div class="company-logo">
-           <%= cl_image_tag deal.company.photo %>
-          </div>
-          <div class="deal-interest">
-            <div class="interest-value"><%= deal.rate_per_annum %>%</div>
-            <div class="interest-time">anual</div>
-          </div>
-
-          <div class="deal-rating">
-            <div class="rating-value"><%= deal.credit_rating %></div>
-            <div class="rating-label">rating</div>
-          </div>
-          <div class="overlay">
-            <div class="text-deal">
-              <ul class="list-unstyled">
-                <li> Duração: <%= deal.maturity %> dias</li>
-              </ul>
-                  <p><%=deal.company.company_description%></p>
+            <%= link_to "", deal_path(deal), class: "card-link" %>
+            <div class="company-logo-name">
+              <div class="legal-name">
+                <%= deal.company.legal_name %>
+              </div>
+              <div class="company-logo">
+                <%= cl_image_tag deal.company.photo %>
+              </div>
             </div>
+            <div class="interest-value"><%= deal.rate_per_annum %>% .a.a</div>
+            <div class="rating-value"><%= deal.credit_rating %> rating</div>
+            <div class="company-description"><%= deal.company.company_description %></div>
+            <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+          </div>
+
+          <div class="deal-completion" >
+            <div class="loaded" style="height:6px;width: <%=
+              (deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100
+             %>%"> </div>
+          </div>
+
+          <div class="descript-card">
+            <div class="status">
+              <% if deal.status == "live" %>
+              <div class="deal-status", style="color: rgba(100,255,20,1);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
+              <% elsif deal.status == "coming soon" %>
+                <div class="deal-status", style="color:black;"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
+              <% else %>
+                <div class="deal-status", style="color:rgba(255,80,80,1);"><%= deal.status %> - <%= ((deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100).to_i %>% levantado</div>
+              <% end %>
+            </div>
+            <div class="deal-amount">R$ <%= number_with_delimiter((deal.amount).to_i) %></div>
+
+
           </div>
         </div>
-
-
-
-       <!--   -->
-
-
-        <div class="maturity" >
-          <div class="loaded" style="height:6px;width: <%=
-            (deal.transactions.pluck(:participation).inject(:+).to_f / deal.amount) * 100
-           %>%"> </div>
-        </div>
-        <div class="descript-card">
-
-          <div class="legal-name"><p><%= deal.company.legal_name %></p></div>
-          <div class="deal-amount"><p>R$ <%= number_with_delimiter((deal.amount).to_i) %> </p></div>
-
-
-        </div>
-      </div>
+        <% end %>
       <% end %>
-    <% end %>
 
+    </div>
   </div>
 </div>
-
-

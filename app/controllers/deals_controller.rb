@@ -6,8 +6,18 @@ class DealsController < ApplicationController
   end
 
   def show
-    @deal = Deal.find(params[:id])
+    @deal = Deal.find(params[:id]
     authorize @deal
+    @company = @deal.company
+
+    if @company.latitude && @company.longitude
+      @markers = [@company].map do |company|
+        {
+          lat: company.latitude,
+          lng: company.longitude,
+        }
+      end
+    end
   end
 
   def new

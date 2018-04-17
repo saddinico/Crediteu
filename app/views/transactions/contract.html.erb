@@ -30,7 +30,7 @@ nº <%= @transaction.investor.cpf %> e no RG nº <%= @transaction.investor.RG %>
 domiciliado(a) à <%= @transaction.investor.address %>, denominado(a) MUTUANTE e
 <%= @transaction.deal.company.manager_first_name %> <%= @transaction.deal.company.manager_last_name %>, Brasileiro(a), <%= @transaction.deal.company.manager_civil_status %>,
 gerante, inscrito(a) no CPF sob o nº <%= @transaction.deal.company.manager_cpf %> e no RG
-nº <%= @transaction.deal.company.manager_RG %>, residente e domiciliado(a) à <%= @transaction.deal.company.manager_address %>,
+nº <%= @transaction.deal.company.manager_RG.to_s %>, residente e domiciliado(a) à <%= @transaction.deal.company.manager_address %>,
 denominado(a) MUTUÁRIO(a), firmam contrato de mútuo que será
 regido pelas cláusulas e condições adiante estabelecidas.</p>
 <p style="margin-bottom: 0cm; line-height: 100%"><br/>
@@ -38,7 +38,7 @@ regido pelas cláusulas e condições adiante estabelecidas.</p>
 </p>
 <p style="margin-bottom: 0cm; line-height: 100%">Cláusula 1ª. Na
 data da assinatura deste contrato o(a) MUTUANTE empresta ao(à)
-MUTUÁRIO(a) a quantia de R$ <%= number_with_delimiter(@transaction.deal.amount) %> (valor por extenso), mediante
+MUTUÁRIO(a) a quantia de R$ <%= number_with_delimiter(@transaction.participation) %> (valor por extenso), mediante
 transferência bancária para conta de titularidade do(a)
 MUTUÁRIO(a), qual seja, conta corrente nº <%= @transaction.deal.company.bank_account_number %>,
 agência <%= @transaction.deal.company.bank_agency %>, do Banco <%= @transaction.deal.company.bank_name %>.</p>

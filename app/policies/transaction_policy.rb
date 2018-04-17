@@ -12,4 +12,9 @@ class TransactionPolicy < ApplicationPolicy
   def create?
     !user.is_company
   end
+
+  def contract?
+    # !user.is_company && record.investor == user
+    true
+  end
 end

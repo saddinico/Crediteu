@@ -23,6 +23,7 @@
             <p><strong>Rating de risco - '<%= transaction.deal.credit_rating %>'</strong></p>
             <p>
               Valor total do empréstimo solicitado: R$ <%= number_with_delimiter(transaction.deal.amount.to_i) %>
+              <%= link_to 'contrato', contract_deal_transaction_path(transaction.deal, transaction, format: :pdf) %>
             </p>
           </div>
           <div class="message-status">

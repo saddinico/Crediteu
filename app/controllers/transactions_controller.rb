@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 
-  before_action :set_transaction, only: [:edit, :destroy, :update]
+  before_action :set_transaction, only: [:edit, :destroy, :update, :contract]
 
   def new
     @transaction = Transaction.new
@@ -33,6 +33,16 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction.destroy
+  end
+
+  def contract
+    authorize @transaction
+    respond_to do |format|
+      format.pdf do
+        render pdf: "contract",
+        template: 'transactions/contract.html.erb'   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   private

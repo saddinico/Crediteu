@@ -48,6 +48,7 @@ class DealsController < ApplicationController
 
   end
 
+
 private
 
    def deal_params

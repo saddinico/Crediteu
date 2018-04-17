@@ -22,6 +22,8 @@ gem 'faker'
 gem 'geocoder'
 gem 'gibbon'
 gem 'postmark-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 
 group :development do

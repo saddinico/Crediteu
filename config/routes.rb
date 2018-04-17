@@ -10,8 +10,13 @@ Rails.application.routes.draw do
 
 
   resources :deals do
-    resources :transactions
+    resources :transactions do
+      member do
+        get :contract
+      end
+    end
   end
+
 
 
   # /deals

@@ -1,18 +1,24 @@
 <div class="background">
   <div class="form-investor-and-company-new">
     <%= simple_form_for @investor do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :date_of_birth %>
-      <%= f.input :phone %>
-      <%= f.input :address %>
-      <%= f.input :gender %>
+      <%= f.input :first_name, label: 'Nome' %>
+      <%= f.input :last_name, label: 'Sobrenome' %>
+      <%= f.input :date_of_birth, label: 'Data de nascimento' %>
+      <%= f.input :phone, label: 'Telefone' %>
+      <%= f.input :address, label: 'Endereço' %>
+      <%= f.input :gender, label: 'Gênero'%>
+      <%= f.input :civil_status, label: 'Estado civil' %>
+      <%= f.input :job, label: 'profissão' %>
       <%= f.input :cpf, label: 'CPF' %>
-      <%= f.input :mother_name, label: "Mother's Name" %>
-      <%= f.input :father_name, label: "Father's Name" %>
-      <%= f.input :monthly_income, label: "Monthly's Income (R$)" %>
-      <%= f.input :net_worth, label: "Net Worth (R$)"  %>
-      <%= f.submit 'Complete registration', class:'btn btn-success btn-lg btn-block' %>
+      <%= f.input :RG, label: 'RG' %>
+      <%= f.input :mother_name, label: "Nome da mãe" %>
+      <%= f.input :father_name, label: "Nome do pai" %>
+      <%= f.input :monthly_income, label: "Salario (R$)" %>
+      <%= f.input :net_worth, label: "Patrimônio líquido (R$)" %>
+      <%= f.input :bank_account_number, label: "Número da conta de banco" %>
+      <%= f.input :bank_agency, label: "Agência bancária" %>
+      <%= f.input :bank_name, label: "Banco" %>
+      <%= f.submit 'Complete cadastro', class:'btn btn-success btn-lg btn-block' %>
     <% end %>
   </div>
 </div>

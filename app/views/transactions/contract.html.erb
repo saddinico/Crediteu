@@ -25,12 +25,12 @@ DE MÚTUO</b></p>
 </p>
 <p style="margin-bottom: 0cm; line-height: 100%">Pelo presente
 instrumento particular, <%= @transaction.investor.first_name %> <%= @transaction.investor.last_name %>, brasileiro(a),
-(<b>estado civil),</b> (<b>profissão</b>), inscrito(a) no CPF sob o
-nº <%= @transaction.investor.cpf %> e no RG nº (<b>informar</b>), residente e
+<%= @transaction.investor.civil_status %> ,</b> <%= @transaction.investor.job %>, inscrito(a) no CPF sob o
+nº <%= @transaction.investor.cpf %> e no RG nº <%= @transaction.investor.RG %>, residente e
 domiciliado(a) à <%= @transaction.investor.address %>, denominado(a) MUTUANTE e
-<%= @transaction.deal.company.manager_first_name %> <%= @transaction.deal.company.manager_last_name %>, Brasileiro(a), (<b>estado</b> civil),
-gerante, inscrito(a) no CPF sob o nº (informar) e no RG
-nº (informar), residente e domiciliado(a) à <%= @transaction.deal.company.address %>,
+<%= @transaction.deal.company.manager_first_name %> <%= @transaction.deal.company.manager_last_name %>, Brasileiro(a), <%= @transaction.deal.company.manager_civil_status %>,
+gerante, inscrito(a) no CPF sob o nº <%= @transaction.deal.company.manager_cpf %> e no RG
+nº <%= @transaction.deal.company.manager_RG %>, residente e domiciliado(a) à <%= @transaction.deal.company.manager_address %>,
 denominado(a) MUTUÁRIO(a), firmam contrato de mútuo que será
 regido pelas cláusulas e condições adiante estabelecidas.</p>
 <p style="margin-bottom: 0cm; line-height: 100%"><br/>
@@ -38,10 +38,10 @@ regido pelas cláusulas e condições adiante estabelecidas.</p>
 </p>
 <p style="margin-bottom: 0cm; line-height: 100%">Cláusula 1ª. Na
 data da assinatura deste contrato o(a) MUTUANTE empresta ao(à)
-MUTUÁRIO(a) a quantia de R$ XX.XXX,XX (valor por extenso), mediante
+MUTUÁRIO(a) a quantia de R$ <%= number_with_delimiter(@transaction.deal.amount) %> (valor por extenso), mediante
 transferência bancária para conta de titularidade do(a)
-MUTUÁRIO(a), qual seja, conta corrente nº (<b>informar</b>),
-agência (<b>informar</b>), do Banco (<b>informar</b>).</p>
+MUTUÁRIO(a), qual seja, conta corrente nº <%= @transaction.deal.company.bank_account_number %>,
+agência <%= @transaction.deal.company.bank_agency %>, do Banco <%= @transaction.deal.company.bank_name %>.</p>
 <p style="margin-bottom: 0cm; line-height: 100%"><br/>
 
 </p>
@@ -49,7 +49,7 @@ agência (<b>informar</b>), do Banco (<b>informar</b>).</p>
 MUTUÁRIO(a) se compromete a restituir ao(à) MUTUANTE a quantia
 mutuada especificada na cláusula anterior, no dia <%= Date.today.day %> de
 <%= Date.today.month %> de <%= Date.today.year %>, acrescida de atualização monetária
-calculada com base no INPC/IBGE e juros de 1% (um por cento) ao ano,
+calculada com base no INPC/IBGE e juros de <%= @transaction.deal.rate_per_annum %>% ao ano,
 os quais serão calculados a partir desta data até o dia da efetiva
 liquidação da dívida.</p>
 <p style="margin-bottom: 0cm; line-height: 100%"><br/>

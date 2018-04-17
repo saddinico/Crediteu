@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
   def update
     authorize @company
     if @company.update(company_params)
-
+      redirect_to companies_path(@company)
     else
       puts "=================="
       puts @company.errors.full_messages
@@ -52,10 +52,15 @@ class CompaniesController < ApplicationController
   private
 
   def set_company
-    @company = Company.where(user_id: params[:id]).last
+    @company = Company.find(params[:id])
   end
 
   def company_params
-    params.require(:company).permit(:legal_name, :address, :cnpj, :date_of_foundation, :phone, :manager_first_name, :manager_last_name, :manager_cpf, :manager_phone, :manager_email, :company_description, :current_billing, :website, :number_of_employees, :use_of_proceeds)
+    params.require(:company).permit(:legal_name, :address, :cnpj, :date_of_foundation,
+      :phone, :manager_first_name, :manager_last_name, :manager_cpf, :manager_phone,
+      :manager_email, :company_description, :current_billing, :website,
+      :number_of_employees, :use_of_proceeds, :bank_account_number, :bank_agency,
+      :bank_name, :manager_civil_status, :manager_RG, :manager_address)
   end
 end
+

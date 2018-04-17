@@ -1,6 +1,6 @@
 class InvestorsController < ApplicationController
 
-  before_action :set_investor, only: [:show, :edit, :destroy ]
+  before_action :set_investor, only: [:show, :edit, :destroy, :update ]
 
   def new
     @investor = Investor.new
@@ -43,12 +43,13 @@ class InvestorsController < ApplicationController
   private
 
   def set_investor
-    @investor = Investor.where(user_id: params[:id]).last
+    @investor = Investor.find(params[:id])
   end
 
   def investor_params
     params.require(:investor).permit(:first_name, :last_name, :monthly_income, :cpf, :date_of_birth,
-      :gender, :mother_name, :father_name, :phone, :address, :net_worth)
+      :gender, :mother_name, :father_name, :phone, :address, :net_worth, :civil_status, :job,
+      :RG, :bank_account_number, :bank_agency, :bank_name)
   end
 
 end

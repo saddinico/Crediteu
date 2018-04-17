@@ -24,13 +24,13 @@
         <%= link_to 'Completar cadastro', new_investor_path(current_user), class: 'complete-registration' %>
       <% end %>
     <% end %>
-          <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Deals</a>
+          <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Ofertas</a>
 
     <% if current_user %>
       <% if current_user.company %>
-        <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+        <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% elsif current_user.investor  %>
-        <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+        <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% end %>
     <% end %>
     <!-- Profile picture with dropdown list -->

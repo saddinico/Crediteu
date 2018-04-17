@@ -18,9 +18,11 @@
     letter-spacing: 1px;
     font-family: 'Karla', sans-serif;
     font-weight:bolder;
+    transition: all 0.3s ease;
   }
   h1:hover{
     color:rgba(0,0,0,1);
+    letter-spacing:0px;
   }
 
 

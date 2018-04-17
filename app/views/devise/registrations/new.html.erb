@@ -1,9 +1,10 @@
-
+<div class="company-signup-form">
+  <%= render "shared/navbar_transparent" %>
 
 <% if params[:is_company].present? %>
 
-  <div class="company-signup-form">
-  <%= render "shared/navbar_transparent" %>
+
+
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -31,16 +32,12 @@
       </div>
     </div>
 
-  </div>
+
 
 <% end %>
   </div>
 
 <% else %>
-
-  <div class="container-signup-investor">
-    <%= render "shared/navbar_transparent" %>
-
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -65,5 +62,5 @@
         </h4>
       </div>
     </div>
-  </div>
+
 <% end %>

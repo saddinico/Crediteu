@@ -12,14 +12,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
   </head>
   <body>
-
+    <%= render 'shared/flashes' %>
     <% if request.original_url != root_url && current_user %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render "shared/navbar_transparent" %>
     <% end %>
 
-     <%= render 'shared/flashes' %>
+
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 
     <%= yield %>

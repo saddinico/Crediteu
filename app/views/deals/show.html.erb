@@ -32,7 +32,7 @@
             <br>
             <% if current_user %>
               <% if @deal.status == 'live' && current_user.investor %>
-                <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success' %>
+                <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success btn-lg' %>
 
             <% end %>
           <% end %>

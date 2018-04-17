@@ -35,3 +35,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+source 'http://rails-assets.org' do
+  gem 'rails-assets-toastr'
+end

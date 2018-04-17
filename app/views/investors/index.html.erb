@@ -15,6 +15,7 @@
 
         <li class="message">
 <!--           <img src='https://source.unsplash.com/random' alt="" class="avatar-large"> -->
+          <div class="message-image"><%= cl_image_tag transaction.deal.company.photo, :width => 75, :height => 75 %></div>
           <div class="message-name">
             <h3><%= transaction.deal.company.legal_name %></h3>
             <p>'<%= transaction.deal.credit_rating %>'</p>

@@ -17,10 +17,10 @@
 <!--           <img src='https://source.unsplash.com/random' alt="" class="avatar-large"> -->
           <div class="message-name">
             <h3><%= transaction.deal.company.legal_name %></h3>
-            <p>.</p>
+            <p>'<%= transaction.deal.credit_rating %>'</p>
           </div>
           <div class="message-body">
-            <p><strong>Rating de risco - '<%= transaction.deal.credit_rating %>'</strong></p>
+            <p><strong>Termina em: <%= transaction.deal.end_date.strftime('%d/%m/%y') %></strong></p>
             <p>
               Valor total do empréstimo solicitado: R$ <%= number_with_delimiter(transaction.deal.amount.to_i) %>
               <%= link_to 'contrato', contract_deal_transaction_path(transaction.deal, transaction, format: :pdf) %>

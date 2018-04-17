@@ -1,75 +1,77 @@
+<div class="background-deal-show">
+  <div class="container">
 
-<div class="container">
 
-
-
-  <div class="deal-show-title">
-    <h1 class="text-center"><%= @deal.company.legal_name %></h1>
-  </div>
-
-  <div class="grid-deal-show">
-    <div style="margin-left:300px;">
-      <%= cl_image_tag @deal.company.photo, :width => 150, :height => 150, :crop => :fill %>
-    </div>
-
-    <div class="deal-info">
-      <ul class="list-unstyled">
-        <li> Montante: R$ <%= number_with_delimiter(@deal.amount) %> </li>
-        <li> Financiado ate agora: R$ <%= number_with_delimiter(@deal.transactions.pluck(:participation).inject(:+)) %> -
-        <%= ((@deal.transactions.pluck(:participation).inject(:+).to_f / @deal.amount) * 100).round %> %</li>
-        <li> Juros a.a. : <%= @deal.rate_per_annum %>% ao ano</li>
-        <li> Ratings de credito <%= @deal.credit_rating %> </li>
-        <li> Status: <%= @deal.status %></li>
-        <br>
-        <% if current_user %>
-          <% if @deal.status == 'live' && current_user.investor %>
-            <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success' %>
-
-        <% end %>
-      <% end %>
-      </ul>
-    </div>
-
-    </div>
-
-    <div class="deal-company-info">
-      <h2>Mais sobre essa empresa: </h2>
-      <ul class="list-unstyled">
-        <li><strong>Foundation:</strong> <%= @deal.company.date_of_foundation %></li>
-        <li> <strong>About:</strong> <%= @deal.company.company_description %> </li>
-        <li><strong>Loan will be used for:</strong> <%= @deal.company.use_of_proceeds.capitalize %></li>
-      </ul>
-
-      <div class="deal-company-other-info">
-        <h2>Mais Informações: </h2>
-        <ul>
-
-          <li>Address: <%=@deal.company.address%></li>
-          <li>CNPJ: <%=@deal.company.cnpj%></li>
-          <li>Phone Number: <%=@deal.company.phone%></li>
-          <li>Manager: <%=@deal.company.manager_first_name%> <%= @deal.company.manager_last_name %></li>
-          <li>Website: <%=@deal.company.website%></li>
-          <li>Number of Employees: <%=@deal.company.number_of_employees%></li>
-        </ul>
+    <div class="deal-show">
+      <div class="deal-show-title">
+        <div class="company-logo-show">
+          <%= cl_image_tag @deal.company.photo, :width => 125, :height => 125, :crop => :fill %>
+        </div>
+        <h1 class="text-center"><%= @deal.company.legal_name %></h1>
       </div>
+
+      <div class="grid-deal-show">
+        <div class="deal-info">
+          <ul class="list-unstyled">
+            <li> Total: R$ <%= number_with_delimiter(@deal.amount) %> </li>
+            <li> Financiado até agora: R$ <%= number_with_delimiter(@deal.transactions.pluck(:participation).inject(:+)) %> -
+            <%= ((@deal.transactions.pluck(:participation).inject(:+).to_f / @deal.amount) * 100).round %> %</li>
+            <li> Juros a.a.: <%= @deal.rate_per_annum %>% ao ano</li>
+            <li> Ratings de crédito: <%= @deal.credit_rating %> </li>
+            <li> Status:
+              <% if @deal.status == 'live' %>
+                Em curso
+              <% elsif @deal.status == 'coming soon' %>
+                Em breve
+              <% else %>
+                Finalizado
+              <% end %>
+
+
+              </li>
+            <br>
+            <% if current_user %>
+              <% if @deal.status == 'live' && current_user.investor %>
+                <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success' %>
+
+            <% end %>
+          <% end %>
+          </ul>
+        </div>
+        <% if @markers  %>
+          <div
+            class="map-show"
+            id="map"
+            style="width: 100%;"
+            data-markers="<%= @markers.to_json %>"
+          ></div>
+        <% end %>
+      </div>
+
+        <div class="deal-company-info">
+          <h2>Mais sobre essa empresa: </h2>
+          <ul class="list-unstyled">
+            <li><strong>Fundação:</strong> <%= @deal.company.date_of_foundation %></li>
+            <li> <strong>Sobre:</strong> <%= @deal.company.company_description %> </li>
+            <li><strong>Utilização de recursos:</strong> <%= @deal.company.use_of_proceeds.capitalize %></li>
+          </ul>
+
+          <div class="deal-company-other-info">
+            <h2>Mais Informações: </h2>
+            <ul>
+
+              <li>Endereço: <%=@deal.company.address%></li>
+              <li>CNPJ: <%=@deal.company.cnpj%></li>
+              <li>Telefone: <%=@deal.company.phone%></li>
+              <li>Responsável: <%=@deal.company.manager_first_name%> <%= @deal.company.manager_last_name %></li>
+              <li>Website: <%=@deal.company.website%></li>
+              <li>Número de empregados: <%=@deal.company.number_of_employees%></li>
+            </ul>
+          </div>
+        </div>
+
+
     </div>
-
-  <% if @markers  %>
-
-
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-    ></div>
-
-  <% end %>
-
-
-
-
-
+  </div>
 </div>
-
 

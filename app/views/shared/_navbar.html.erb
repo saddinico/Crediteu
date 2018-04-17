@@ -24,13 +24,13 @@
         <%= link_to 'Completar cadastro', new_investor_path(current_user), class: 'complete-registration' %>
       <% end %>
     <% end %>
-          <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Deals</a>
+          <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Ofertas</a>
 
     <% if current_user %>
       <% if current_user.company %>
-        <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+        <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% elsif current_user.investor  %>
-        <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Dashboard</a>
+        <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% end %>
     <% end %>
     <!-- Profile picture with dropdown list -->
@@ -40,9 +40,9 @@
           <img src="<%= asset_path 'burger.png'%>" class="burger dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <% if current_user.is_company && current_user.company != nil %>
-            <li><%= link_to "Edit profile", edit_company_path(current_user.company) %></li>
+            <li><%= link_to "Editar perfil", edit_company_path(current_user.company) %></li>
             <% elsif !current_user.is_company && current_user.investor != nil  %>
-            <li><%= link_to "Edit profile", edit_investor_path(current_user.investor) %></li>
+            <li><%= link_to "Editar perfil", edit_investor_path(current_user.investor) %></li>
             <% end %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>

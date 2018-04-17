@@ -30,8 +30,19 @@
       <% end %>
 
       <% if current_user.company %>
+
      <% if current_user.company.deals.last != nil %>
-      <h3> Status do pedido: <%= current_user.company.deals.last.status %></h3>
+      <h3> Status do pedido:
+        <% if current_user.company.deals.last == 'live' %>
+            Em curso
+          <% elsif current_user.company.deals.last == 'coming soon' %>
+            Em breve
+          <% elsif  current_user.company.deals.last == 'pending' %>
+            Em análise
+            <% else %>
+            Finalizado
+        <% end %>
+      </h3>
       <% end %>
       <% end %>
 

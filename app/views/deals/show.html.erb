@@ -88,15 +88,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
       <%= simple_form_for ([@deal, @transaction]) do |f| %>
-          <%= f.input :participation, label: "Valor", collection: [2000, 4000, 6000, 10000, 15000, 20000] %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <%= f.submit 'Confirmar', class:" btn btn-success",data: { confirm: "Confirmar transação?" } %>
-        <% end %>
-      </div>
+        <div class="modal-body">
+            <%= f.input :participation, label: "Valor", collection: [["R$ 2000",2000], ["R$ 4000", 4000], ["R$ 6000",6000], ["R$ 10000",10000], ["R$ 15000",15000], ["R$ 20000",20000]], include_blank: false %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <%= f.submit 'Confirmar', class:" btn btn-success",data: { confirm: "Confirmar transação?" } %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -16,6 +16,8 @@
     <% end %>
 
   <!-- Right Navigation -->
+
+
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user && !current_user.admin? %>
       <% if current_user.company == nil && current_user.is_company == true %>
@@ -24,14 +26,23 @@
         <%= link_to 'Completar cadastro', new_investor_path(current_user), class: 'complete-registration' %>
       <% end %>
     <% end %>
+    <% if current_user %>
+      <% if current_user.investor  %>
+        <h6>Olá <%= current_user.investor.first_name %>!</h6>
+      <% elsif current_user.company %>
+        <h6>Olá <%= current_user.company.legal_name %>!</h6>
+      <% end %>
+    <% end %>
           <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Ofertas</a>
 
     <% if current_user %>
       <% if current_user.company %>
         <a href="/companies" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% elsif current_user.investor  %>
+
         <a href="/investors" class="navbar-wagon-item navbar-wagon-link">Painel</a>
       <% end %>
+
     <% end %>
     <!-- Profile picture with dropdown list -->
     <% if current_user %>

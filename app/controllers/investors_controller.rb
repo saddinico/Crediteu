@@ -14,7 +14,7 @@ class InvestorsController < ApplicationController
      if @investor.save
       redirect_to '/deals'
     else
-      render 'new'
+      redirect_to new_investor_path(@investor)
     end
   end
 

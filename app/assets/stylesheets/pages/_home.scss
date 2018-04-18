@@ -29,6 +29,8 @@
 .container-white {
   margin-left: 100px;
   margin-right: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 
   h2 {
     text-align: center;
@@ -39,4 +41,8 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+}
+
+.feature {
+  width: 200px;
 }

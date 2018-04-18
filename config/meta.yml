@@ -1,0 +1,5 @@
+meta_product_name: "Crediteu"
+meta_title: "Crediteu - Uma nova maneira de investir e conseguir empréstimos"
+meta_description: "Uma melhor oportunidade para investidores e micro-emprendedores através de empréstimos descentralizados. "
+meta_image: "assimg.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@crediteu_io"   # required for Twitter Cards

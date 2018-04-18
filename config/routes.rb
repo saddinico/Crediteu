@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'pages/simulation'
 
+  get 'pages/admin'
+
   resources :companies
 
 

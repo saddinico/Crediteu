@@ -37,15 +37,15 @@ class DealsController < ApplicationController
   end
 
   def edit
-
+    authorize @deal
   end
 
   def update
-
+    authorize @deal
   end
 
   def destroy
-
+    authorize @deal
   end
 
 

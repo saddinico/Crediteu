@@ -36,19 +36,25 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'Le Wagon',
-                     address: Faker::Address.street_address,
+                     address: '495 Visconde de Piraja Avenue, Rio de Janeiro - RJ, 22410-002',
                      phone: Faker::PhoneNumber.cell_phone,
-                     manager_first_name: Faker::Name.first_name,
-                     manager_last_name: Faker::Name.last_name,
+                     manager_first_name: 'Pedro',
+                     manager_last_name: 'Meier',
                      manager_cpf: Faker::Number.number(11),
                      manager_phone: Faker::PhoneNumber.cell_phone,
-                     manager_email: Faker::Internet.email,
+                     manager_email: 'pedro@lewagon.org',
                      company_description: 'Le Wagon é uma escola de programação para startups, pessoas criativas e empreendedores.',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'www.lewagon.com',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631739/le-wagon-logo.png'
+                     use_of_proceeds: 'Expansion',
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631739/le-wagon-logo.png',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Casado',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Leblon',
+                     bank_name: 'Itau'
                      )
 
 user = User.create!(email: Faker::Internet.email, password: "123456")
@@ -56,7 +62,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'Lev',
-                     address: Faker::Address.street_address,
+                     address: 'Av. General Polidoro, 59, Botafogo, RJ',
                      phone: Faker::PhoneNumber.cell_phone,
                      manager_first_name: Faker::Name.first_name,
                      manager_last_name: Faker::Name.last_name,
@@ -65,10 +71,16 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      manager_email: Faker::Internet.email,
                      company_description: 'uma empresa carioca que e pioneira na fabricação e comercialização de bicicletas elétricas no Brasil.',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'www.golev.com.br',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631650/mcwlzwfuy3jygdjqdl4q.jpg'
+                     use_of_proceeds: 'compra de matéria prima',
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631650/mcwlzwfuy3jygdjqdl4q.jpg',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Casado',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Botafogo',
+                     bank_name: 'Citi'
                      )
 
 user = User.create!(email: Faker::Internet.email, password: "123456")
@@ -76,7 +88,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'Longarina',
-                     address: Faker::Address.street_address,
+                     address: 'R. Maria Luíza Pitanga, 163 - Barra da Tijuca, Rio de Janeiro - RJ, 22611-190',
                      phone: Faker::PhoneNumber.cell_phone,
                      manager_first_name: Faker::Name.first_name,
                      manager_last_name: Faker::Name.last_name,
@@ -85,10 +97,16 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      manager_email: Faker::Internet.email,
                      company_description: 'Surfshop para mulheres',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'http://longarina.com',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631676/iSUBSRk.png'
+                     use_of_proceeds: 'Abrir nova loja',
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631676/iSUBSRk.png',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Solteiro',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Barra de Tijuca',
+                     bank_name: 'Banco do Brazil'
                      )
 
 user = User.create!(email: Faker::Internet.email, password: "123456")
@@ -96,7 +114,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'Brownie do Luiz',
-                     address: Faker::Address.street_address,
+                     address: 'Rua das Laranjeiras, 103 - loja A, RJ',
                      phone: Faker::PhoneNumber.cell_phone,
                      manager_first_name: Faker::Name.first_name,
                      manager_last_name: Faker::Name.last_name,
@@ -105,10 +123,16 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      manager_email: Faker::Internet.email,
                      company_description: 'O Brownie do Luiz é a melhor mistura de cacau com felicidade.',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'http://browniedoluiz.com.br',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631697/brownie-do-luiz-logo-300x300.png'
+                     use_of_proceeds: 'expansão internacional',
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631697/brownie-do-luiz-logo-300x300.png',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Solteiro',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Laranjeiras',
+                     bank_name: 'Santander'
                      )
 
 
@@ -117,7 +141,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'Polis Sucos',
-                     address: Faker::Address.street_address,
+                     address: ' R. Maria Quitéria, 70 - Ipanema, Rio de Janeiro - RJ, 22410-040',
                      phone: Faker::PhoneNumber.cell_phone,
                      manager_first_name: Faker::Name.first_name,
                      manager_last_name: Faker::Name.last_name,
@@ -126,10 +150,16 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      manager_email: Faker::Internet.email,
                      company_description: 'Das casas de sucos mais antigas da cidade, a Polis é uma das poucas em que o suco é feito com a própria fruta, não com a polpa congelada.',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'www.polissucos.com.br/en',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631624/18935-polis-sucos.jpg'
+                     use_of_proceeds: 'aquisição',
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631624/18935-polis-sucos.jpg',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Casado',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Leblon',
+                     bank_name: 'Santander'
                      )
 
 user = User.create!(email: Faker::Internet.email, password: "123456")
@@ -137,7 +167,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
                      cnpj: Faker::Number.number(14),
                      legal_name: 'City Model Ipanema',
-                     address: Faker::Address.street_address,
+                     address: '495 Visconde de Piraja Avenue, Rio de Janeiro - RJ, 22410-002',
                      phone: Faker::PhoneNumber.cell_phone,
                      manager_first_name: Faker::Name.first_name,
                      manager_last_name: Faker::Name.last_name,
@@ -146,10 +176,16 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      manager_email: Faker::Internet.email,
                      company_description: 'A City Models é uma das melhores agência de modelos direcionada à carreira de modelos comerciais, fashions, artistas, celebridades e Digital influencias.',
                      current_billing: Faker::Number.between(100000, 1000000),
-                     website: "www." + Faker::Internet.domain_name,
+                     website: 'www.citymodels.com.br',
                      number_of_employees: Faker::Number.between(1, 40),
                      use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631580/XvjOuM9t_400x400.jpg'
+                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631580/XvjOuM9t_400x400.jpg',
+                     manager_RG: Faker::Number.number(11),
+                     manager_civil_status: 'Solteiro',
+                     manager_address: Faker::Address.street_address,
+                     bank_account_number: Faker::Number.number(10),
+                     bank_agency: 'Ipanema',
+                     bank_name: 'Bradesco'
                      )
 
 

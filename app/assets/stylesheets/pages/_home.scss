@@ -26,4 +26,17 @@
 }
 
 
+.container-white {
+  margin-left: 100px;
+  margin-right: 100px;
 
+  h2 {
+    text-align: center;
+  }
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}

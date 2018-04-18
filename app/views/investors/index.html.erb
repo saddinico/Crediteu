@@ -24,7 +24,10 @@
             <p><strong>Termina em: <%= transaction.deal.end_date.strftime('%d/%m/%y') %></strong></p>
             <p>
               Valor total do empréstimo solicitado: R$ <%= number_with_delimiter(transaction.deal.amount.to_i) %>
-              <%= link_to 'contrato', contract_deal_transaction_path(transaction.deal, transaction, format: :pdf) %>
+              <%= link_to contract_deal_transaction_path(transaction.deal, transaction, format: :pdf) do %>
+                <i class="far fa-file-alt"></i>
+              <% end %>
+
             </p>
           </div>
           <div class="message-status">

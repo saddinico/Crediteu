@@ -37,22 +37,28 @@ class DealsController < ApplicationController
   end
 
   def edit
-
+    @deal = Deal.find(params[:id])
+    authorize @deal
   end
 
   def update
+    @deal = Deal.find(params[:id])
+    @deal.update(deal_params)
+    authorize @deal
 
+    redirect_to deals_path
   end
 
   def destroy
-
+    authorize @deal
   end
 
 
 private
 
    def deal_params
-    params.require(:deal).permit(:start_date, :end_date, :amount)
+    params.require(:deal).permit(:start_date, :end_date, :amount, :rate_per_annum, :credit_rating,
+      :status)
   end
 
 end

@@ -1,0 +1,11 @@
+
+  <%= simple_form_for @deal do |f| %>
+    <%= f.input :amount, label: 'montante' %>
+    <%= f.input :rate_per_annum, label: 'juros ao ano' %>
+    <%= f.input :credit_rating, label: 'rating de credito' %>
+    <%= f.input :status, label: 'estado' %>
+    <%= f.input :start_date, label: 'data de início' %>
+    <%= f.input :end_date, label: 'data final' %>
+    <%= f.submit 'Confirmar a oftera' %>
+  <% end %>
+

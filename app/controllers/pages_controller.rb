@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
   def simulation
   end
+
+  def admin
+    authorize :page, :admin?
+    @deals = Deal.all
+    @transactions = Transaction.all
+  end
 end

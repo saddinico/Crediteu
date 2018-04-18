@@ -2,6 +2,36 @@
   <div class="container">
     <div class="card-index-grid">
 
+      <% if current_user.admin? %>
+        <% @deals.each do |deal| %>
+          <% if deal.status == 'pending' %>
+          <div class="card-deal">
+            <div class="card-photo">
+
+              <div class="company-logo-name">
+                <div class="company-logo">
+                  <%= cl_image_tag deal.company.photo %>
+                </div>
+              </div>
+              <div class="deal-content">
+                <div class="legal-name">
+                    <%= deal.company.legal_name %>
+                  </div>
+                <div class="interest-and-rating">
+                  <div class="interest-value"><strong> <%= deal.rate_per_annum %>% .a.a</strong></div>
+                  <div class="rating-value"><strong><%= deal.credit_rating %> rating</strong></div>
+                  <div class="deal-time">
+                    <div class="deal-start">Inicio: <%= deal.start_date.strftime('%e/%m/%Y') %></div>
+                    <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+                </div>
+                <%= link_to 'aprovar/editar oferta', edit_deal_path(deal), class: 'btn btn-warning' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
+    <% end %>
 
       <% @deals.each do |deal| %>
         <% if deal.status != 'pending' %>

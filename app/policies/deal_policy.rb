@@ -13,6 +13,18 @@ class DealPolicy < ApplicationPolicy
     user.is_company
   end
 
+  def edit?
+    user.admin?
+  end
+
+  def update?
+    user.admin?
+  end
+
+  def destroy?
+    user.admin?
+  end
+
 
   def show?
     true

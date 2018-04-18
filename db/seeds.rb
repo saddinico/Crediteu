@@ -189,25 +189,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      )
 
 
- Deal.create!(company_id: 1,
-              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
-              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: 600000,
-              rate_per_annum: 16,
-              credit_rating: 'A',
-              status: 'coming soon',
-              )
-
-  Deal.create!(company_id: 2,
-              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
-              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: 1000000,
-              rate_per_annum: 20,
-              credit_rating: 'BB',
-              status: 'completed',
-              )
-
-   Deal.create!(company_id: 3,
+Deal.create!(company_id: 3,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 100000,
@@ -216,16 +198,34 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               status: 'live',
               )
 
-    Deal.create!(company_id: 4,
+Deal.create!(company_id: 3,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: 250000,
-              rate_per_annum: 28,
-              credit_rating: 'CCC',
+              amount: 100000,
+              rate_per_annum: 26,
+              credit_rating: 'B',
               status: 'live',
               )
 
-     Deal.create!(company_id: 5,
+Deal.create!(company_id: 6,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 175000,
+              rate_per_annum: 30,
+              credit_rating: 'CC',
+              status: 'live',
+              )
+
+Deal.create!(company_id: 1,
+              start_date: Faker::Date.between(100.days.ago, 21.days.ago),
+              end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
+              amount: 600000,
+              rate_per_annum: 16,
+              credit_rating: 'A',
+              status: 'coming soon',
+              )
+
+Deal.create!(company_id: 5,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 300000,
@@ -234,13 +234,13 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
               status: 'coming soon',
               )
 
-      Deal.create!(company_id: 6,
+Deal.create!(company_id: 2,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: 175000,
-              rate_per_annum: 30,
-              credit_rating: 'CC',
-              status: 'live',
+              amount: 1000000,
+              rate_per_annum: 20,
+              credit_rating: 'BB',
+              status: 'completed',
               )
 
 

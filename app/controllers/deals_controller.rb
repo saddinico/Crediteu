@@ -6,6 +6,7 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    @transaction = Transaction.new
     authorize @deal
     @company = @deal.company
 

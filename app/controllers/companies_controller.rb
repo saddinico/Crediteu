@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
       puts "=================="
       puts @company.errors.full_messages
       puts "=================="
-      render :new
+      redirect_to new_company_path(current_user)
     end
   end
 

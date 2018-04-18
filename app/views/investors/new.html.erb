@@ -1,23 +1,38 @@
 <div class="background">
   <div class="form-investor-and-company-new">
     <%= simple_form_for @investor do |f| %>
-      <%= f.input :first_name, label: 'Nome' %>
-      <%= f.input :last_name, label: 'Sobrenome' %>
-      <%= f.input :date_of_birth, label: 'Data de nascimento' %>
-      <%= f.input :phone, label: 'Telefone' %>
+      <div class="pair-form">
+        <%= f.input :first_name, label: 'Nome' %>
+        <%= f.input :last_name, label: 'Sobrenome' %>
+      </div>
+      <div class="pair-form">
+        <%= f.input :date_of_birth, label: 'Data de nascimento' %>
+        <%= f.input :phone, label: 'Telefone' %>
+      </div>
       <%= f.input :address, label: 'Endereço' %>
-      <%= f.input :gender, label: 'Gênero'%>
-      <%= f.input :civil_status, label: 'Estado civil' %>
-      <%= f.input :job, label: 'profissão' %>
-      <%= f.input :cpf, label: 'CPF' %>
-      <%= f.input :RG, label: 'RG' %>
-      <%= f.input :mother_name, label: "Nome da mãe" %>
-      <%= f.input :father_name, label: "Nome do pai" %>
-      <%= f.input :monthly_income, label: "Salario (R$)" %>
-      <%= f.input :net_worth, label: "Patrimônio líquido (R$)" %>
-      <%= f.input :bank_account_number, label: "Número da conta de banco" %>
-      <%= f.input :bank_agency, label: "Agência bancária" %>
+      <div class="pair-form">
+        <%= f.input :gender, label: 'Gênero'%>
+        <%= f.input :civil_status, label: 'Estado civil' %>
+      </div>
+      <%= f.input :job, label: 'Profissão' %>
+      <div class="pair-form">
+        <%= f.input :cpf, label: 'CPF' %>
+        <%= f.input :RG, label: 'RG' %>
+      </div>
+      <div class="pair-form">
+        <%= f.input :mother_name, label: "Nome da mãe" %>
+        <%= f.input :father_name, label: "Nome do pai" %>
+      </div>
+      <div class="pair-form">
+        <%= f.input :monthly_income, label: "Salario (R$)" %>
+        <%= f.input :net_worth, label: "Patrimônio líquido (R$)" %>
+      </div>
       <%= f.input :bank_name, label: "Banco" %>
+      <div class="pair-form">
+        <%= f.input :bank_account_number, label: "Conta Bancária" %>
+        <%= f.input :bank_agency, label: "Agência bancária" %>
+      </div>
+
       <%= f.submit 'Complete cadastro', class:'btn btn-success btn-lg btn-block' %>
     <% end %>
   </div>

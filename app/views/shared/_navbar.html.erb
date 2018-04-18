@@ -17,7 +17,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <% if current_user %>
+    <% if current_user && !current_user.admin? %>
       <% if current_user.company == nil && current_user.is_company == true %>
         <%= link_to 'Completar cadastro', new_company_path(current_user), class: 'complete-registration' %>
       <% elsif !current_user.is_company && current_user.investor == nil %>

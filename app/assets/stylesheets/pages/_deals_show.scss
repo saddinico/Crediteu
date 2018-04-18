@@ -2,7 +2,6 @@
   margin: 10px 10vw 0 10vw;
   // background-color:green;
   padding:50px 0px;
-
 }
 
 .grid-deal-show {
@@ -59,6 +58,12 @@
 
 .background-deal-show{
   background-color:rgba(255,255,255,1);
+}
+
+label{
+  abbr{
+    display:none;
+  }
 }
 
 

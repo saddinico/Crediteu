@@ -32,7 +32,10 @@
             <br>
             <% if current_user %>
               <% if @deal.status == 'live' && current_user.investor %>
-                <%= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success btn-lg' %>
+                <%#= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success btn-lg' %>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
+                  Investir
+                </button>
 
             <% end %>
           <% end %>
@@ -75,3 +78,25 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nova Transação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for ([@deal, @transaction]) do |f| %>
+          <%= f.input :participation, label: "Valor", collection: [2000, 4000, 6000, 10000, 15000, 20000] %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <%= f.submit 'Confirmar', class:" btn btn-success",data: { confirm: "Confirmar transação?" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

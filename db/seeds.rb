@@ -47,7 +47,7 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      current_billing: Faker::Number.between(100000, 1000000),
                      website: 'www.lewagon.com',
                      number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: 'Expansion',
+                     use_of_proceeds: 'Expansão',
                      photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631739/le-wagon-logo.png',
                      manager_RG: Faker::Number.number(11),
                      manager_civil_status: 'Casado',

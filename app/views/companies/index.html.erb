@@ -32,11 +32,11 @@
       <% if current_user.company %>
         <% if current_user.company.deals.last != nil %>
             <h3> Status do pedido:
-              <% if current_user.company.deals.last == 'live' %>
+              <% if current_user.company.deals.last.status == 'live' %>
                 Em curso
-              <% elsif current_user.company.deals.last == 'coming soon' %>
+              <% elsif current_user.company.deals.last.status == 'coming soon' %>
                 Em breve
-              <% elsif  current_user.company.deals.last == 'pending' %>
+              <% elsif  current_user.company.deals.last.status == 'pending' %>
                 Em análise
               <% else %>
                 Finalizado

@@ -42,12 +42,13 @@
 
     <%= yield %>
 
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag "map" %>
+
     <% if request.original_url == root_url  %>
       <%= render "shared/footer" %>
     <% end %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag "map" %>
     <%= yield(:after_js) %>
   </body>
 </html>

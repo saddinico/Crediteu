@@ -1,6 +1,10 @@
-  <%= simple_form_for @deal do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :amount %>
-    <%= f.submit 'Create a New Deal' %>
-  <% end %>
+  <div class="container">
+    <div class="new-deal">
+      <%= simple_form_for @deal do |f| %>
+        <%= f.input :start_date, label:"Data de Inicio" %>
+        <%= f.input :end_date, label:"Data Final" %>
+        <%= f.input :amount, label:"Valor Total" %>
+        <%= f.submit 'Criar novo empréstimo', class:"btn btn-block btn-success btn-lg"; %>
+      <% end %>
+    </div>
+  </div>

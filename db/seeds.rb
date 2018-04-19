@@ -189,32 +189,6 @@ user = User.create!(email: Faker::Internet.email, password: "123456")
                      )
 
 
-user = User.create!(email: Faker::Internet.email, password: "123456")
-      Company.create!(user_id: 16,
-                     date_of_foundation: Faker::Date.between(9.years.ago, 1.year.ago),
-                     cnpj: Faker::Number.number(14),
-                     legal_name: 'City Model Ipanema',
-                     address: '495 Visconde de Piraja Avenue, Rio de Janeiro - RJ, 22410-002',
-                     phone: Faker::PhoneNumber.cell_phone,
-                     manager_first_name: Faker::Name.first_name,
-                     manager_last_name: Faker::Name.last_name,
-                     manager_cpf: Faker::Number.number(11),
-                     manager_phone: Faker::PhoneNumber.cell_phone,
-                     manager_email: Faker::Internet.email,
-                     company_description: 'A City Models é uma das melhores agência de modelos direcionada à carreira de modelos comerciais, fashions, artistas, celebridades e Digital influencias.',
-                     current_billing: Faker::Number.between(100000, 1000000),
-                     website: 'www.citymodels.com.br',
-                     number_of_employees: Faker::Number.between(1, 40),
-                     use_of_proceeds: Faker::Company.bs,
-                     photo: 'http://res.cloudinary.com/dta0lx6co/image/upload/v1523631580/XvjOuM9t_400x400.jpg',
-                     manager_RG: Faker::Number.number(11),
-                     manager_civil_status: 'Solteiro',
-                     manager_address: Faker::Address.street_address,
-                     bank_account_number: Faker::Number.number(10),
-                     bank_agency: 'Ipanema',
-                     bank_name: 'Bradesco'
-                     )
-
 user = User.create!(email: 'andrezra@gmail.com', password: "123456")
       Company.create!(user_id: 17,
                      date_of_foundation: '20/11/2015',

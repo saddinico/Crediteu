@@ -275,14 +275,14 @@ Deal.create!(company_id: 5,
               amount: 300000,
               rate_per_annum: 19,
               credit_rating: 'BBB',
-              status: 'coming soon',
+              status: 'live',
               )
 
 
 20.times do |x|
 
   Transaction.create!(investor_id: (1..10).to_a.sample,
-                     deal_id: [3, 4, 6].sample,
+                     deal_id: [1,2,4].sample,
                      participation: [2000, 4000, 8000].sample,
                      )
 end

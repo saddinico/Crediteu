@@ -220,7 +220,7 @@ Deal.create!(company_id: 2,
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
               amount: 1000000,
               rate_per_annum: 20,
-              credit_rateing: 'BB',
+              credit_rating: 'BB',
               status: 'live',
               )
 

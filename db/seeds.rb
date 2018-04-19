@@ -12,6 +12,14 @@ puts "Please wait while the seeds load..."
 
 puts "-"
 
+Transaction.destroy_all
+Deal.destroy_all
+Company.destroy_all
+Investor.destroy_all
+User.destroy_all
+
+
+
 
   10.times do |x|
     user = User.create!(email: Faker::Internet.email, password: "123456")
@@ -227,7 +235,7 @@ Deal.create!(company_id: 2,
 Deal.create!(company_id: 3,
               start_date: Faker::Date.between(100.days.ago, 21.days.ago),
               end_date: Faker::Date.between(200.days.from_now, 500.days.from_now),
-              amount: 100000,
+              amount: 150000,
               rate_per_annum: 26,
               credit_rating: 'B',
               status: 'live',
@@ -287,7 +295,7 @@ Deal.create!(company_id: 5,
                      )
 end
 
-29.times do |x|
+30.times do |x|
 
   Transaction.create!(investor_id: (1..10).to_a.sample,
                      deal_id: 7,

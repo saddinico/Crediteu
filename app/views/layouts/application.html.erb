@@ -41,11 +41,14 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 
     <%= yield %>
+
+
+    <% if request.original_url == root_url  %>
+      <%= render "shared/footer" %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag "map" %>
-
-
     <%= yield(:after_js) %>
   </body>
 </html>

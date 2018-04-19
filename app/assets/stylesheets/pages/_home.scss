@@ -29,11 +29,15 @@
 .container-white {
   margin-left: 100px;
   margin-right: 100px;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 
   h2 {
+    font-family: 'Montserrat';
     text-align: center;
+    font-weight:bold;
+    color:rgba(0,0,0,1);
+    font-size:64px;
   }
 }
 
@@ -41,8 +45,19 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+  margin-top:50px;
+  // border-bottom: 4px solid rgba(0,0,0,.9);
 }
 
 .feature {
-  width: 200px;
+  width: 300px;
+  h6{
+    font-family: 'Montserrat';
+    font-weight:bolder;
+    font-size:24px;
+    color:rgba(0,0,0,1);
+    line-height: 32px;
+    margin-top:25px;
+    margin-bottom:100px;
+  }
 }

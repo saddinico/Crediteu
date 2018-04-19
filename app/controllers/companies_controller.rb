@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = policy_scope(Company).all
+    @deal = Deal.new
   end
 
   def new

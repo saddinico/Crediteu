@@ -287,6 +287,13 @@ Deal.create!(company_id: 5,
                      )
 end
 
+30.times do |x|
+
+  Transaction.create!(investor_id: (1..10).to_a.sample,
+                     deal_id: 7,
+                     participation: 10000,
+                     )
+end
 
 
 puts "Done!"

@@ -22,7 +22,7 @@
                   <div class="rating-value"><strong><%= deal.credit_rating %> rating</strong></div>
                   <div class="deal-time">
                     <div class="deal-start">Inicio: <%= deal.start_date.strftime('%e/%m/%Y') %></div>
-                    <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+                    <div class="deal-duration">Duração: <%= ((deal.maturity)/30.436875).round %> meses</div>
                 </div>
                 <%= link_to 'aprovar/editar oferta', edit_deal_path(deal), class: 'btn btn-warning' %>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="rating-value"><strong><%= deal.credit_rating %> rating</strong></div>
                 <div class="deal-time">
                   <div class="deal-start">Inicio: <%= deal.start_date.strftime('%e/%m/%Y') %></div>
-                  <div class="deal-duration">Duração: <%= deal.maturity %> dias</div>
+                  <div class="deal-duration">Duração: <%= ((deal.maturity)/30.436875).round %> meses</div>
               </div>
               </div>
             </div>

@@ -28,9 +28,9 @@
     <% end %>
     <% if current_user %>
       <% if current_user.investor  %>
-        <h6>Olá <%= current_user.investor.first_name %>!</h6>
+        <h6>Olá, <%= current_user.investor.first_name %>!</h6>
       <% elsif current_user.company %>
-        <h6>Olá <%= current_user.company.legal_name %>!</h6>
+        <h6>Olá, <%= current_user.company.legal_name %>!</h6>
       <% end %>
     <% end %>
           <a href="/deals" class="navbar-wagon-item navbar-wagon-link">Ofertas</a>

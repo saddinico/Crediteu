@@ -55,7 +55,7 @@
 
       document.getElementById("hidiv").classList.remove('hidden-div');
       document.getElementById("but-sign-up").classList.remove('hidden-div');
-      let rate = (4 - (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1)) / 10;
+      let rate = (((4 - (document.getElementById("inc").value/1) + (document.getElementById("amo").value/1000) + (document.getElementById("numb").value/1)) / 10) - 7).toFixed(2);
       document.getElementById("testx").innerHTML = `${rate}% por mês`
   });
     </script>

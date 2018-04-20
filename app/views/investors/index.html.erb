@@ -11,8 +11,6 @@
       <ul class="inbox">
           <% current_user.investor.transactions.each do |transaction| %>
 
-
-
         <li class="message">
 <!--           <img src='https://source.unsplash.com/random' alt="" class="avatar-large"> -->
           <div class="message-image"><%= cl_image_tag transaction.deal.company.photo, :width => 75, :height => 75 %></div>

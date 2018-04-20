@@ -1,7 +1,5 @@
 <div class="background-deal-show">
   <div class="container">
-
-
     <div class="deal-show">
       <div class="deal-show-title">
         <div class="company-logo-show">
@@ -13,18 +11,18 @@
       <div class="grid-deal-show">
         <div class="deal-info">
           <ul class="list-unstyled">
-            <li> Total: R$ <%= number_with_delimiter(@deal.amount) %> </li>
-            <li> Financiado até agora: R$ <%= number_with_delimiter(@deal.transactions.pluck(:participation).inject(:+)) %> -
-            <%= ((@deal.transactions.pluck(:participation).inject(:+).to_f / @deal.amount) * 100).round %> %</li>
-            <li> Juros a.a.: <%= @deal.rate_per_annum %>% ao ano</li>
-            <li> Ratings de crédito: <%= @deal.credit_rating %> </li>
+            <li> Total: <strong>R$ <%= number_with_delimiter(@deal.amount)%> </strong></li>
+            <li> Financiado até agora: <strong> R$ <%= number_with_delimiter(@deal.transactions.pluck(:participation).inject(:+)) || 0  %>
+            (<%= ((@deal.transactions.pluck(:participation).inject(:+).to_f / @deal.amount) * 100).round %> %)</strong></li>
+            <li> Juros a.a.: <strong> <%= @deal.rate_per_annum %>% </strong> <!-- ao ano --></li>
+            <li> Ratings de crédito: <strong><%= @deal.credit_rating %></strong> </li>
             <li> Status:
               <% if @deal.status == 'live' %>
-                Em curso
+                <strong>Em curso</strong>
               <% elsif @deal.status == 'coming soon' %>
-                Em breve
+                <strong>Em breve</strong>
               <% else %>
-                Finalizado
+                <strong>Finalizado</strong>
               <% end %>
 
 
@@ -33,7 +31,7 @@
             <% if current_user %>
               <% if @deal.status == 'live' && current_user.investor %>
                 <%#= link_to 'Investir', new_deal_transaction_path(@deal), class: 'btn btn-success btn-lg' %>
-                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">
                   Investir
                 </button>
 
@@ -54,14 +52,14 @@
         <div class="deal-company-info">
           <h2>Mais sobre essa empresa: </h2>
           <ul class="list-unstyled">
-            <li><strong>Fundação:</strong> <%= @deal.company.date_of_foundation %></li>
+            <li><strong>Fundação:</strong> <%= @deal.company.date_of_foundation.strftime('%d/%m/%y') %></li>
             <li> <strong>Sobre:</strong> <%= @deal.company.company_description %> </li>
             <li><strong>Utilização de recursos:</strong> <%= @deal.company.use_of_proceeds.capitalize %></li>
           </ul>
 
           <div class="deal-company-other-info">
             <h2>Mais Informações: </h2>
-            <ul>
+            <ul class="list-unstyled">
 
               <li>Endereço: <%=@deal.company.address%></li>
               <li>CNPJ: <%=@deal.company.cnpj%></li>
